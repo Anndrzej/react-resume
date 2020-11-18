@@ -36,3 +36,17 @@
     transform: rotate(360deg);
   }
 }
+
+/* material-ui styles */
+
+.MuiPaper-root { 
+  opacity: .9;
+
+}
+
+body { 
+  background: url(black.jpg) no-repeat center center fixed;
+  background-size: cover;
+  width: 100%;
+  height: auto;
+}
