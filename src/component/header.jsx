@@ -4,6 +4,7 @@ import { AssignmentInd, Home, Apps, ContactMail, } from '@material-ui/icons';
 import MenuIcon from '@material-ui/icons/Menu';
 import { makeStyles } from '@material-ui/styles';
 import SideBar from '@material-ui/core/Drawer';
+import {Link} from 'react-router-dom';
 
 
 
@@ -26,11 +27,13 @@ const useStyle = makeStyles(theme => ({
 const menuItems = [
   {
     listIcon: <Home />,
-    listText: 'Home'
+    listText: 'Home',
+    listPath: '/'
   },
   {
     listIcon: <AssignmentInd />,
-    listText: 'Resume'
+    listText: 'Resume',
+    listPath: '/resume'
   },
   {
     listIcon: <Apps />,
@@ -60,7 +63,7 @@ function Header() {
       <Divider />
       <List>
         {menuItems.map((lsitem, key) => (
-          <ListItem button hey={key}>
+          <ListItem button hey={key} component={Link} to={lsitem.listPath}>
             <ListItemIcon>
               {lsitem.listIcon}
             </ListItemIcon>

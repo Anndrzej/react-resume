@@ -3,20 +3,22 @@ import React from 'react'
 import Header from './component/header';
 import Footer from './component/footer';
 import { CssBaseline } from '@material-ui/core';
-import Particles from 'react-particles-js';
-
+import Home from './pages/home';
+import Resume from './pages/resume';
+import {Route} from 'react-router-dom'
 
 
 
 function App() {
+
   return (
     <div>
       <CssBaseline />
       <Header />
       <Footer />
-      <Particles params={{
-       
-      }} />
+      <Route exact path='/' component={Home} />
+      <Route path='/resume' component={Resume} />
+
     </div>
   );
 }
