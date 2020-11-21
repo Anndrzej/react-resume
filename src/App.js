@@ -5,7 +5,8 @@ import Footer from './component/footer';
 import { CssBaseline } from '@material-ui/core';
 import Home from './pages/home';
 import Resume from './pages/resume';
-import {Route} from 'react-router-dom'
+import { Route } from 'react-router-dom'
+import Contacts from './pages/contacts';
 
 
 
@@ -18,9 +19,9 @@ function App() {
       <Footer />
       <Route exact path='/' component={Home} />
       <Route path='/resume' component={Resume} />
-
-    </div>
-  );
+      <Route path='/contacts' component={Contacts} />
+  </div>
+);
 }
 
 export default App;
