@@ -62,15 +62,68 @@ const Contacts = () => {
     return (
         <Box component='div'>
             <Grid container justify='center'>
-                <Box component='form' className={classes.form}>
+                <Box
+                    component='form'
+                    name='contact'
+                    action='/contacts'
+                    method='post'
+                    className={classes.form}
+                >
                     <Typography variant='h5' className={classes.title}>
                         contact me
                     </Typography>
-                    <InputField fullWidth={true} label='Name' variant='outlined' inputProps={{ style: { color: 'white' } }} margin='dense' size='small' />
-                    <InputField fullWidth={true} label='Email' variant='outlined' inputProps={{ style: { color: 'white' } }} margin='dense' size='small' />
-                    <InputField fullWidth={true} label='Company name' variant='outlined' inputProps={{ style: { color: 'white' } }} margin='dense' size='small' />
-                    <InputField fullWidth={true} multiline={true} rows={5} label='Message' variant='outlined' inputProps={{ style: { color: 'white' } }} margin='dense' size='small' />
-                    <Button className={classes.button} variant='outlined' fullWidth={true} endIcon={<SendIcon />}>
+                    <InputField type='hidden' name='form-name' value='contact' />
+                    <InputField
+                        required
+                        fullWidth={true}
+                        label='Name'
+                        variant='outlined'
+                        inputProps={{ style: { color: 'white' } }}
+                        margin='dense'
+                        size='small'
+                        type="text"
+                        name="name" />
+
+                    <InputField
+                        required
+                        fullWidth={true}
+                        label='Email'
+                        variant='outlined'
+                        inputProps={{ style: { color: 'white' } }}
+                        margin='dense'
+                        size='small'
+                        type="email"
+                        name="email" />
+
+                    <InputField
+                        required
+                        fullWidth={true}
+                        label='Company name'
+                        variant='outlined'
+                        inputProps={{ style: { color: 'white' } }}
+                        margin='dense'
+                        size='small'
+                        type="text"
+                        name="company" />
+
+                    <InputField
+                        required
+                        fullWidth={true}
+                        multiline={true}
+                        rows={5}
+                        label='Message'
+                        variant='outlined'
+                        inputProps={{ style: { color: 'white' } }}
+                        margin='dense'
+                        size='small'
+                        name="message" />
+
+                    <Button
+                        className={classes.button}
+                        variant='outlined'
+                        fullWidth={true}
+                        endIcon={<SendIcon />}
+                        type='submit'>
                         contact me
                     </Button>
                 </Box>
