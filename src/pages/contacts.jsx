@@ -54,25 +54,42 @@ const InputField = withStyles({
     },
 })(TextField);
 
-const Contacts = () => {
+const encode = (data) => {
+    return Object.keys(data)
+        .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+        .join("&");
+  }
 
+const Contacts = () => {
     const classes = useStyles()
 
+    const handleSubmit = e => {
+      fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: encode({ 'form-name': 'contact' }),
+          })
+            .then(() => alert('success')) // успех)
+            .catch(error => alert(error));
+      e.preventDefault();
+
+    }
 
     return (
         <Box component='div'>
             <Grid container justify='center'>
                 <Box
                     component='form'
-                    name='contact'
+                    name='contacts'
                     action='/contacts'
                     method='post'
                     className={classes.form}
+                    onSubmit={handleSubmit}
                 >
                     <Typography variant='h5' className={classes.title}>
                         contact me
                     </Typography>
-                    <InputField type='hidden' name='form-name' value='contact' />
+                    <InputField type='hidden' name='form-name' value='contacts' />
                     <InputField
                         required
                         fullWidth={true}
