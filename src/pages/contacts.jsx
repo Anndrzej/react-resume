@@ -1,4 +1,4 @@
-import React from 'react';
+import {React, useState} from 'react';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import { TextField, Typography, Button, Grid, Box } from '@material-ui/core';
 import SendIcon from '@material-ui/icons/Send';
@@ -62,17 +62,29 @@ const encode = (data) => {
 
 const Contacts = () => {
     const classes = useStyles()
+    
+    const [data, setData] = useState({name: '', email: '', message: '', company: ''})
+    
+
 
     const handleSubmit = e => {
       fetch('/', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: encode({ 'form-name': 'contact' }),
+            body: encode({ 'form-name': 'contact', ...data}),
           })
             .then(() => alert('success')) // успех)
             .catch(error => alert(error));
       e.preventDefault();
 
+    }
+
+    const handleChange = (e) => {
+        const {name, value} = e.target
+            setData({
+                ...data,
+                [name]: value
+        })
     }
 
     return (
@@ -81,8 +93,6 @@ const Contacts = () => {
                 <Box
                     component='form'
                     name='contacts'
-                    action='/contacts'
-                    method='post'
                     className={classes.form}
                     onSubmit={handleSubmit}
                 >
@@ -99,7 +109,9 @@ const Contacts = () => {
                         margin='dense'
                         size='small'
                         type="text"
-                        name="name" />
+                        name="name"
+                        value={data.name} 
+                        onChange={handleChange} />
 
                     <InputField
                         required
@@ -110,7 +122,9 @@ const Contacts = () => {
                         margin='dense'
                         size='small'
                         type="email"
-                        name="email" />
+                        name="email"
+                        value={data.email} 
+                        onChange={handleChange} />
 
                     <InputField
                         required
@@ -121,7 +135,9 @@ const Contacts = () => {
                         margin='dense'
                         size='small'
                         type="text"
-                        name="company" />
+                        name="company"
+                        value={data.company} 
+                        onChange={handleChange} />
 
                     <InputField
                         required
@@ -133,7 +149,9 @@ const Contacts = () => {
                         inputProps={{ style: { color: 'white' } }}
                         margin='dense'
                         size='small'
-                        name="message" />
+                        name="message"
+                        value={data.message} 
+                        onChange={handleChange} />
 
                     <Button
                         className={classes.button}
