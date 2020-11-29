@@ -65,13 +65,13 @@ const Contacts = () => {
     
     const [data, setData] = useState({name: '', email: '', message: '', company: ''})
     
-
+    const handleChange = e => setData({ ...data, [e.target.name]: e.target.value })
 
     const handleSubmit = e => {
       fetch('/', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: encode({ 'form-name': 'contact', ...data}),
+            body: encode({ 'form-name': 'contact'}),
           })
             .then(() => alert('success')) // успех)
             .catch(error => alert(error));
@@ -86,7 +86,6 @@ const Contacts = () => {
     //             [name]: value
     //     })
     // }
-    const handleChange = e => setData({ ...data, [e.target.name]: e.target.value })
     return (
         <Box component='div'>
             <Grid container justify='center'>
