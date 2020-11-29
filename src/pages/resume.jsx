@@ -31,17 +31,17 @@ const useStyles = makeStyles(theme => ({
             }
         }
     },
-    timeLineItem: { 
+    timeLineItem: {
         padding: '1rem',
         borderBottom: '2px solid tan',
-        position: 'relative', 
+        position: 'relative',
         margin: '1rem 3rem 1rem 1rem',
         clear: 'both',
-        '&:after': { 
+        '&:after': {
             content: "''",
             position: 'absolute'
         },
-        '&:before': { 
+        '&:before': {
             content: "''",
             position: 'absolute',
             right: '-0.625rem',
@@ -51,15 +51,15 @@ const useStyles = makeStyles(theme => ({
             borderWidth: '0.625rem',
             transform: 'rotate(45deg)'
         },
-        [theme.breakpoints.up('md')]: { 
+        [theme.breakpoints.up('md')]: {
             width: '44%',
             margin: '1rem',
-            '&:nth-of-type(2n)': { 
+            '&:nth-of-type(2n)': {
                 float: 'right',
                 margin: '1rem',
                 borderColor: 'tan'
             },
-            '&:nth-of-type(2n):before': { 
+            '&:nth-of-type(2n):before': {
                 right: 'auto',
                 left: '-0.625rem',
                 borderColor: 'transparent transparent tomato tomato'
@@ -75,24 +75,24 @@ const useStyles = makeStyles(theme => ({
         color: 'white',
         lineHeight: 1,
         padding: '0.5rem 0 1rem',
-        '&:before': { 
+        '&:before': {
             display: 'none'
         },
-        [theme.breakpoints.up('md')]: { 
+        [theme.breakpoints.up('md')]: {
             textAlign: 'center',
             margin: '0 auto',
-            '&:nth-of-type(2n)': { 
+            '&:nth-of-type(2n)': {
                 float: 'none',
                 margin: '0 auto',
             },
-            }
+        }
     },
-    heading: { 
+    heading: {
         color: 'tomato',
         padding: '3rem 0',
         textTransform: 'uppercase'
     },
-    subHeading: { 
+    subHeading: {
         color: 'white',
         padding: '0',
         textTransform: 'uppercase'
@@ -108,20 +108,20 @@ function Resume() {
                 <Typography variant='h4' className={`${classes.timeLineYear} ${classes.timeLineItem}`}> 2017 </Typography>
                 <Box component='div' className={classes.timeLineItem}>
                     <Typography variant="h5" align='center' className={classes.subHeading}>web design</Typography>
-                    <Typography variant="body1" align='center' style={{ color: 'tomato'}}>company name where worked</Typography>
-                    <Typography variant="subtitle1" align='center' style={{ color: 'tan'}}>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Placeat, corrupti.</Typography>
+                    <Typography variant="body1" align='center' style={{ color: 'tomato' }}>company name where worked</Typography>
+                    <Typography variant="subtitle1" align='center' style={{ color: 'tan' }}>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Placeat, corrupti.</Typography>
                 </Box>
                 <Typography variant='h4' className={`${classes.timeLineYear} ${classes.timeLineItem}`}> 2015 </Typography>
                 <Box component='div' className={classes.timeLineItem}>
                     <Typography variant="h5" align='center' className={classes.subHeading}>web design</Typography>
-                    <Typography variant="body1" align='center' style={{ color: 'tomato'}}>company name where worked</Typography>
-                    <Typography variant="subtitle1" align='center' style={{ color: 'tan'}}>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Placeat, corrupti.</Typography>
+                    <Typography variant="body1" align='center' style={{ color: 'tomato' }}>company name where worked</Typography>
+                    <Typography variant="subtitle1" align='center' style={{ color: 'tan' }}>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Placeat, corrupti.</Typography>
                 </Box>
                 <Typography variant='h4' className={`${classes.timeLineYear} ${classes.timeLineItem}`}> 2013 </Typography>
                 <Box component='div' className={classes.timeLineItem}>
                     <Typography variant="h5" align='center' className={classes.subHeading}>web design</Typography>
-                    <Typography variant="body1" align='center' style={{ color: 'tomato'}}>company name where worked</Typography>
-                    <Typography variant="subtitle1" align='center' style={{ color: 'tan'}}>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Placeat, corrupti.</Typography>
+                    <Typography variant="body1" align='center' style={{ color: 'tomato' }}>company name where worked</Typography>
+                    <Typography variant="subtitle1" align='center' style={{ color: 'tan' }}>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Placeat, corrupti.</Typography>
                 </Box>
             </Box>
         </Box>

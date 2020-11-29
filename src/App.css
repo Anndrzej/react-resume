@@ -41,12 +41,9 @@
 
 .MuiPaper-root { 
   opacity: .9;
-
 }
 
 body { 
-  background: url(black.jpg) no-repeat center center fixed;
-  background-size: cover;
-  width: 100%;
-  height: auto;
+  background-color: #26262a !important;
 }
+
