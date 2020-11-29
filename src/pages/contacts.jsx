@@ -71,7 +71,7 @@ const Contacts = () => {
       fetch('/', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: encode({ 'form-name': 'contact'}),
+            body: encode({ 'form-name': 'contact', ...data}),
           })
             .then(() => alert('success')) // успех)
             .catch(error => alert(error));
@@ -79,13 +79,14 @@ const Contacts = () => {
 
     }
 
-    const handleChange = (e) => {
-        const {name, value} = e.target
-            setData({
-                ...data,
-                [name]: value
-        })
-    }
+    // const handleChange = (e) => {
+    //     const {name, value} = e.target
+    //         setData({
+    //             ...data,
+    //             [name]: value
+    //     })
+    // }
+    const handleChange = e => setData({ ...data, [e.target.name]: e.target.value })
     return (
         <Box component='div'>
             <Grid container justify='center'>
