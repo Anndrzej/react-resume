@@ -65,7 +65,7 @@ const Contacts = () => {
     
     const [data, setData] = useState({name: '', email: '', message: '', company: ''})
     
-    const handleChange = e => setData({ ...data, [e.target.name]: e.target.value })
+    // const handleChange = e => setData({ ...data, [e.target.name]: e.target.value })
 
     const handleSubmit = e => {
       fetch('/', {
@@ -79,13 +79,13 @@ const Contacts = () => {
 
     }
 
-    // const handleChange = (e) => {
-    //     const {name, value} = e.target
-    //         setData({
-    //             ...data,
-    //             [name]: value
-    //     })
-    // }
+    const handleChange = (e) => {
+        const {name, value} = e.target
+            setData({
+                ...data,
+                [name]: value
+        })
+    }
     return (
         <Box component='div'>
             <Grid container justify='center'>
