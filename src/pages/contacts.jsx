@@ -2,7 +2,11 @@ import { React, useState } from 'react';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import { TextField, Typography, Button, Grid, Box } from '@material-ui/core';
 import SendIcon from '@material-ui/icons/Send';
-import styles from './contacts.module.css'
+import css from './contacts.module.css';
+import HomeIcon from '@material-ui/icons/Home';
+import PhoneIcon from '@material-ui/icons/Phone';
+import MailIcon from '@material-ui/icons/Mail';
+
 
 
 const useStyles = makeStyles(theme => ({
@@ -17,18 +21,20 @@ const useStyles = makeStyles(theme => ({
     },
     form: {
         textAlign: 'center',
-        // [theme.breakpoints.down('md')]: {
-        //     width: '70%'
-        // },
-        // [theme.breakpoints.down('sm')]: {
-        //     width: '100%'
-        // }
+        margin: 'auto',
+        order: 2,
+        [theme.breakpoints.up("md")]: {
+            order: 3
+        }
     },
     button: {
         marginTop: '1rem',
         color: 'white',
         borderColor: 'white',
-        width: '41%'
+        width: '44%',
+        [theme.breakpoints.down("md")]: {
+            width: '55%'
+        }
     },
     title: {
         textTransform: 'uppercase',
@@ -44,6 +50,14 @@ const useStyles = makeStyles(theme => ({
     subText: {
         textTransform: 'uppercase',
         color: 'white',
+    },
+    contactItems: {
+        margin: 'auto',
+        alignItems: 'center',
+        order: 3,
+        [theme.breakpoints.up("md")]: {
+            order: 2,
+        }
     },
 
 }))
@@ -67,7 +81,6 @@ const InputField = withStyles({
                 borderColor: 'white'
             }
         },
-        width: '60%',
     },
 })(TextField);
 
@@ -103,29 +116,32 @@ const Contacts = () => {
     }
     return (
         <Box component='div'>
-            <Grid container item lg={10} className={classes.contactContainer}>
-                <Grid item lg ={4}>
-                    <Box className={styles.contactBox}>
-                        <Box className={styles.circle}>
-                            <img />
+            <Grid container item md={12} className={classes.contactContainer}>
+                <Grid item md={4} xs={8} className={classes.contactItems}>
+                    <Box className={css.contactBox}>
+                        <Box className={css.circleWrapper}>
+                            <Box className={css.circle} />
+                            <PhoneIcon className={css.icon} />
                         </Box>
                         <Box>
                             <Typography className={classes.mainText}>Call me</Typography>
                             <Typography className={classes.subText}>577077387</Typography>
                         </Box>
                     </Box>
-                    <Box className={styles.contactBox}>
-                        <Box className={styles.circle}>
-                            <img />
+                    <Box className={css.contactBox}>
+                        <Box className={css.circleWrapper}>
+                            <Box className={css.circle} />
+                            <MailIcon className={css.icon} />
                         </Box>
                         <Box>
                             <Typography className={classes.mainText}>Text me</Typography>
                             <Typography className={classes.subText}>slobodjanik1997@gmail.com</Typography>
                         </Box>
                     </Box>
-                    <Box className={styles.contactBox}>
-                        <Box className={styles.circle}>
-                            <img />
+                    <Box className={css.contactBox}>
+                        <Box className={css.circleWrapper}>
+                            <Box className={css.circle} />
+                            <HomeIcon className={css.icon} />
                         </Box>
                         <Box>
                             <Typography className={classes.mainText}>Address</Typography>
@@ -134,7 +150,7 @@ const Contacts = () => {
                     </Box>
                 </Grid>
                 <Grid
-                item lg={6}
+                    item md={4} xs={9}
                     component='form'
                     name='contacts'
                     className={classes.form}
