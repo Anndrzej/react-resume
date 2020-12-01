@@ -149,8 +149,8 @@ const Contacts = () => {
                         </Box>
                     </Box>
                 </Grid>
-                <Grid
-                    item md={4} xs={9}
+                <Box
+                    // item md={4} xs={9}
                     component='form'
                     name='contacts'
                     className={classes.form}
@@ -221,7 +221,7 @@ const Contacts = () => {
                         type='submit'>
                         contact me
                     </Button>
-                </Grid>
+                </Box>
             </Grid>
         </Box>
     );
