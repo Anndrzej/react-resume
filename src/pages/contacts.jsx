@@ -36,7 +36,7 @@ const useStyles = makeStyles(theme => ({
             width: '55%'
         }
     },
-    title: {
+    subtitle: {
         textTransform: 'uppercase',
         color: 'white',
         textAlign: 'center'
@@ -59,7 +59,16 @@ const useStyles = makeStyles(theme => ({
             order: 2,
         }
     },
-
+    title: {
+        color: '#2b2c2f',
+        fontSize: '8rem',
+        fontWeight: 'bold',
+        textTransform: 'capitalize',
+        paddingTop: '1rem',
+        [theme.breakpoints.down('sm')]: {
+            display: 'none'
+        }
+    }
 }))
 
 const InputField = withStyles({
@@ -116,6 +125,9 @@ const Contacts = () => {
     }
     return (
         <Box component='div'>
+            <Grid item sm={11} style={{margin: 'auto'}}>
+                <Typography className={classes.title}>Contact</Typography>
+            </Grid>
             <Grid container item md={12} className={classes.contactContainer}>
                 <Grid item md={4} xs={8} className={classes.contactItems}>
                     <Box className={css.contactBox}>
@@ -156,8 +168,8 @@ const Contacts = () => {
                     className={classes.form}
                     onSubmit={handleSubmit}
                 >
-                    <Typography variant='h5' className={classes.title}>
-                        contact me
+                    <Typography variant='h5' className={classes.subtitle}>
+                        send message
                     </Typography>
                     <InputField type='hidden' name='form-name' value='contacts' />
                     <InputField
