@@ -7,6 +7,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
+
 const useStyles = makeStyles(theme => ({
     firstPage: {
         height: '100vh'
@@ -62,40 +63,40 @@ function Resume() {
 
     // GSAP
 
-    const wrapperRef = useRef(null)
+    const wrapperRef = useRef(null);
+
+    const revealRefs = useRef([]);
+    revealRefs.current = [];
 
     useEffect(() => {
-        gsap.from('.test', {
-            duration: 3,
-            y: '100',
-            opacity: 0,
-            ease: 'ease-in',
-            scrollTrigger: {
-                trigger: '.year',
-                start: 'top 90%',
-                end: 'bottom 60%',
-                markers: true,
-                toggleActions: 'restart complete reverse reset'
-            }
-        })
-        // revealRefs.current.forEach((el, index) => {
+        gsap.from(wrapperRef.current, {
+            autoAlpha: 0, 
+            x:150,
+            ease: 'ease-in-out',
+            delay: 1
+          });
 
-        //     gsap.fromTo(el, {
-        //         autoAlpha: 0
-        //     }, {
-        //         duration: 1,
-        //         autoAlpha: 1,
-        //         ease: 'none',
-        //         scrollTrigger: {
-        //             id: `section-${index+1}`,
-        //             trigger: el,
-        //             start: 'top center+=100',
-        //             toggleActions: 'play none none reverse'
-        //         }
-        //     });
+        revealRefs.current.forEach((el, index) => {
 
-        // });
+            gsap.fromTo(el, {autoAlpha: 0, x: -100}, {duration: 1, autoAlpha: 1, x: 0,
+                scrollTrigger: {
+                    id: `section-${index+1}`,
+                    trigger: el,
+                    start: 'top center+=100',
+                    toggleActions: 'play none none reverse'
+                }
+            });
+
+        });
     }, []);
+
+    const addToRefs = el => {
+        if (el && !revealRefs.current.includes(el)) {
+            revealRefs.current.push(el);
+        }
+      };
+
+      //END GSAP
 
     const [sections, setSections] = useState ([
         {
@@ -124,10 +125,9 @@ function Resume() {
                 <Typography className={classes.title}> Working Experience</Typography>
             </Box>
             {sections.map(( section) => (
-
-            <Grid item md={8} className={classes.contentContainer}>
-                <Typography ref={wrapperRef} className={classes.year}>{section.year}</Typography>
-                    <Grid className={classes.textWrapper}>
+            <Grid item md={8} className={classes.contentContainer} ref={addToRefs}>
+                <Typography className={classes.year}>{section.year}</Typography>
+                    <Grid  ref={wrapperRef} className={classes.textWrapper}>
                         <Typography className={classes.proffesion}>{section.proffesion}</Typography>
                         <Typography className={classes.company}>{section.company}</Typography>
                 <Typography className={classes.text}>{section.text}</Typography>
