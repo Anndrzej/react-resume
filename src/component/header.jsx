@@ -5,7 +5,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import { makeStyles } from '@material-ui/core';
 import SideBar from '@material-ui/core/Drawer';
 import { Link } from 'react-router-dom';
-import change from '../App.css'
+import change from '../App.css';
 
 
 
@@ -49,7 +49,7 @@ const useStyle = makeStyles(theme => ({
     '&:hover': { 
       color: '#000',
       backgroundColor: '#fff',
-      transition: '1s linear'
+      transition: '.5s linear',
     },
     [theme.breakpoints.down('sm')]: { 
       width: '50%',
@@ -65,13 +65,14 @@ const useStyle = makeStyles(theme => ({
   },
   title: { 
     fontSize: '2rem',
+    fontWeight: '100',
     [theme.breakpoints.down('sm')]: {
       fontSize: '1.3rem',
       padding: '0',
     },
   },
   num: { 
-    fontSize: '3.5rem',
+    fontSize: '4rem',
     fontWeight: 'bold',
     
     marginTop: '5rem',
@@ -84,7 +85,8 @@ const useStyle = makeStyles(theme => ({
     position: 'absolute',
     bottom: '5%',
 
-    fontSize: '.7rem'
+    color: 'black',
+    fontSize: '.7rem',
     
   }
 }));
@@ -149,7 +151,7 @@ function Header() {
   return (
     <>
       <Box component='nav'>
-        <AppBar position='static' style={{ background: '#222' }}>
+        <AppBar position='fixed' style={{ background: '#222' }}>
           <Toolbar>
             <IconButton onClick={toggleSlider('right', true)}>
               <MenuIcon className={classes.burgerIcon} />

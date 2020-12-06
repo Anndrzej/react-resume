@@ -25,6 +25,10 @@ const useStyles = makeStyles(theme => ({
         order: 2,
         [theme.breakpoints.up("md")]: {
             order: 3
+        },
+        [theme.breakpoints.down("sm")]: {
+            marginTop: '25rem',
+            marginBottom: '3rem'
         }
     },
     button: {
@@ -45,11 +49,17 @@ const useStyles = makeStyles(theme => ({
         textTransform: 'uppercase',
         color: 'white',
         fontSize: '1.5rem',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        [theme.breakpoints.down("sm")]: {
+          fontSize: '1rem'
+        }
     },
     subText: {
         textTransform: 'uppercase',
         color: 'white',
+        [theme.breakpoints.down("sm")]: {
+            fontSize: '.6rem'
+          }
     },
     contactItems: {
         margin: 'auto',

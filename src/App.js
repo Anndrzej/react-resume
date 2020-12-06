@@ -17,7 +17,6 @@ function App() {
     <div>
       <CssBaseline />
       <Header />
-      <Footer />
       <Route exact path='/' component={Home} />
       <Route path='/resume' component={Resume} />
       <Route path='/contacts' component={Contacts} />

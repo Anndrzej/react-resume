@@ -4,6 +4,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import { gsap } from 'gsap';
 import { useEffect, useState } from 'react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import css from './resume.module.css';
+import Footer from '../component/footer'
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -120,9 +123,12 @@ function Resume() {
     ])
 
     return (
-        <Box>
+        <Box style={{position: 'absolute'}}>
             <Box className={classes.firstPage}>
                 <Typography className={classes.title}> Working Experience</Typography>
+                <Box component='div' className={css.middle}>
+                    <Box className={css.mouse}></Box>
+                </Box>
             </Box>
             {sections.map(( section) => (
             <Grid item md={8} className={classes.contentContainer} ref={addToRefs}>
@@ -136,6 +142,7 @@ function Resume() {
             </Grid>
              ))
             }
+            <Footer />
         </Box>
 
     )
