@@ -86,6 +86,7 @@ function About() {
         </Grid>
         <Grid className={classes.dots} component='img' src={dots} item xs={8} sm={5} md={3}/>
       </Container>
+      test
     </Box>
 
   )
