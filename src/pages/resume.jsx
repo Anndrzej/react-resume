@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
     },
     title: {
         textAlign: 'center',
-        marginTop: '3rem',
+        marginTop: '5rem',
         textTransform: 'uppercase',
         fontWeight: 'bold',
         fontSize: '3rem'
@@ -101,7 +101,7 @@ function Resume() {
 
       //END GSAP
 
-    const [sections, setSections] = useState ([
+    const [sections] = useState ([
         {
             proffesion: 'web design',
             company: 'company name where worked',

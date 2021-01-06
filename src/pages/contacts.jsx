@@ -17,7 +17,10 @@ const useStyles = makeStyles(theme => ({
         position: 'absolute',
         margin: '0 auto',
         display: 'flex',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        [theme.breakpoints.down("md")]: { 
+            paddingBottom: '2rem'
+        }
     },
     form: {
         textAlign: 'center',
@@ -74,9 +77,10 @@ const useStyles = makeStyles(theme => ({
         fontSize: '8rem',
         fontWeight: 'bold',
         textTransform: 'capitalize',
-        paddingTop: '1rem',
+        paddingTop: '3rem',
         [theme.breakpoints.down('sm')]: {
-            display: 'none'
+            fontSize: '6rem',
+            textAlign: 'center'
         }
     }
 }))
@@ -172,7 +176,7 @@ const Contacts = () => {
                     </Box>
                 </Grid>
                 <Grid
-                    item md={4} xs={9}
+                    item md={5} xs={9}
                     component='form'
                     name='contacts'
                     className={classes.form}

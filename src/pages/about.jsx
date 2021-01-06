@@ -13,23 +13,24 @@ const useStyle = makeStyles(theme => ({
     fontSize: '8rem',
     fontWeight: 'bold',
     textTransform: 'capitalize',
-    paddingTop: '1rem',
-    [theme.breakpoints.down('sm')]: {
+    paddingTop: '3rem',
+    [theme.breakpoints.down('xs')]: {
       fontSize: '5rem',
-      paddingTop: '0'
     }
   },
   textWrapper: {
     position: 'absolute',
-    top: '55%',
-    left: '40%',
-    transform: 'translate(-30%, -50%)',
+    width: '80%',
+    top: '60%',
+    left: '50%',
+    right: '50%',
+    transform: 'translate(-50%, -50%)',
     zIndex: '1000',
     margin: '0 auto',
     backgroundColor: '#26262a',
     boxShadow: '0px 0px 20px 3px rgba(0,0,0,0.36)',
     [theme.breakpoints.down('xs')]: {
-      top: '65%',
+      top: '55%',
       left: '30%',
       margin: '0 auto',
       zIndex: '1000',
@@ -56,10 +57,10 @@ const useStyle = makeStyles(theme => ({
     }
   },
   dots: {
-    marginTop: '5.5rem',
+    marginTop: '9rem',
     float: 'right',
     [theme.breakpoints.down('sm')]: {
-      marginTop: '8rem',
+      marginTop: '10rem',
     }
   },
   
@@ -86,7 +87,6 @@ function About() {
         </Grid>
         <Grid className={classes.dots} component='img' src={dots} item xs={8} sm={5} md={3}/>
       </Container>
-      test
     </Box>
 
   )

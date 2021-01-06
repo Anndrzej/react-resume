@@ -1,22 +1,22 @@
 import React from 'react'
-import { Container, Box, BottomNavigation, List, ListItem, Typography } from '@material-ui/core';
+import { Container, Box, BottomNavigation, ListItem, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import { LinkedIn, Facebook } from '@material-ui/icons';
 import MailIcon from '@material-ui/icons/Mail';
 
 
-const contactLinks = [
-    {
-        github: 'https://github.com/Anndersonn'
-    },
-    {
-        linkedin: 'https://www.linkedin.com/in/andrzej-slobodianyk-746a96177/'
-    },
-    {
-        facebook: 'https://www.facebook.com/profile.php?id=100006173475893'
-    }
-]
+// const contactLinks = [
+//     {
+//         github: 'https://github.com/Anndersonn'
+//     },
+//     {
+//         linkedin: 'https://www.linkedin.com/in/andrzej-slobodianyk-746a96177/'
+//     },
+//     {
+//         facebook: 'https://www.facebook.com/profile.php?id=100006173475893'
+//     }
+// ]
 
 const useStyle = makeStyles(theme => ({
     box: {

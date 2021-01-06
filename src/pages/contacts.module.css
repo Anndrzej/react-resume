@@ -23,6 +23,7 @@
     border-top-color: #f50a0a;
     animation: animate 2s linear infinite;
 }
+
 @keyframes animate {
     0% {
         transform: rotate(0deg);

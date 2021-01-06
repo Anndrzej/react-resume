@@ -87,8 +87,13 @@ const useStyle = makeStyles(theme => ({
 
     color: 'black',
     fontSize: '.7rem',
-    
+  },
+  '@global': { 
+    '.MuiAppBar-positionFixed': { 
+      position: 'unset'
+    }
   }
+
 }));
 
 const menuItems = [
@@ -105,7 +110,8 @@ const menuItems = [
     listAbout: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut suscipit illum asperiores eveniet, autem inventore itaque vitae aliquid, animi ut fuga ipsa impedit iusto quae alias eum corporis iste quisquam.'
   },
   {
-    listText: 'Portfolio',
+    listText: 'Skills',
+    listPath: '/skills',
     listNum: '3',
     listAbout: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut suscipit illum asperiores eveniet, autem inventore itaque vitae aliquid, animi ut fuga ipsa impedit iusto quae alias eum corporis iste quisquam.'
   },
@@ -135,11 +141,11 @@ function Header() {
 
   const classes = useStyle();
 
-  const sideList = slider => (
+  const sideList = () => (
     <Grid item xs={9} sm={10}  className={classes.menuSliderContainer} component="div">
       <List style={{padding: '0'}}>
         {menuItems.map((lsitem, key) => (
-          <ListItem className={classes.listItem}  button key={key} component={Link} to={lsitem.listPath}>
+          <ListItem className={classes.listItem} key={key} component={Link} to={lsitem.listPath}>
             <Typography className={classes.num}>{lsitem.listNum}</Typography>
             <Typography className={classes.title}>{lsitem.listText}</Typography>
             <Typography className={classes.about}>{lsitem.listAbout}</Typography>
@@ -151,7 +157,7 @@ function Header() {
   return (
     <>
       <Box component='nav'>
-        <AppBar position='fixed' style={{ background: '#222' }}>
+        <AppBar style={{ background: '#222' }}>
           <Toolbar>
             <IconButton onClick={toggleSlider('right', true)}>
               <MenuIcon className={classes.burgerIcon} />
