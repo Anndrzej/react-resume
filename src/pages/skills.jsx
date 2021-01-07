@@ -9,7 +9,7 @@ const useStyles = makeStyles(theme => ({
         textAlign: 'center',
         margin: '0',
         color: '#2b2c2f',
-     },
+    },
     btnContent: {
         display: 'flex',
         flexDirection: 'column',
@@ -19,82 +19,117 @@ const useStyles = makeStyles(theme => ({
         left: '50%',
         transform: 'translate(-50%, -50%)',
     },
-    btn: { 
+    btn: {
+        width: '15rem',
+        height: '3.8rem',
         marginTop: '3rem',
-        fontSize: '3rem',
-        backgroundColor: 'transparent',
+        fontSize: '1.5rem',
         border: 'none',
+        backgroundColor: 'transparent',
+        outline: 'none',
+
+        cursor: 'pointer',
+
+        borderRadius: '2px',
+        transition: 'all .3s',
+	    position: 'relative',
+	    overflow: 'hidden',
+        zIndex: 1,
+        '&:after': {
+            content: '""',
+            position: 'absolute',
+            bottom: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            zIndex: -2,
+        },
+        '&:before': {
+            content: '""',
+            position: 'absolute',
+            bottom: 0,
+            left: 0,
+            width: '100%',
+            height: '0%',
+            backgroundColor: '#1e4a55',
+            transition: 'all .3s',
+            zIndex: -1,
+        },
+
+        '&:hover': { 
+            color: '#fff',
+            '&:before': { 
+                height: '100%'
+            }
+        },
+        
+
     },
-    item: { 
+    item: {
         position: 'absolute',
         display: 'block',
         width: '8px',
         height: '8px',
         backgroundColor: '#9d9c9c',
         borderRadius: '3px',
+        transition: 'all 0.4s linear',
 
-        '&:nth-child(1)': { 
+        '&:nth-child(1)': {
             right: '70%',
             top: '50%',
-            transform: 'rotate(45deg)'
         },
-        '&:nth-child(2)': { 
+        '&:nth-child(2)': {
             right: '78%',
             top: '65%',
-            transform: 'rotate(15deg)'
         },
-        '&:nth-child(3)': { 
+        '&:nth-child(3)': {
             right: '86%',
             top: '43%',
-            transform: 'rotate(66deg)'
         },
-        '&:nth-child(4)': { 
+        '&:nth-child(4)': {
             right: '74%',
             top: '33%',
-            transform: 'rotate(75deg)'
         },
-        '&:nth-child(5)': { 
+        '&:nth-child(5)': {
             right: '78%',
             top: '46%',
         },
-        '&:nth-child(6)': { 
+        '&:nth-child(6)': {
             right: '67%',
             top: '64%',
         },
-        '&:nth-child(7)': { 
+        '&:nth-child(7)': {
             left: '86%',
             top: '43%',
-            transform: 'rotate(15deg)'
         },
-        '&:nth-child(8)': { 
+        '&:nth-child(8)': {
             left: '74%',
             top: '33%',
-            transform: 'rotate(66deg)'
         },
-        '&:nth-child(9)': { 
+        '&:nth-child(9)': {
             left: '77%',
             top: '45%',
-            transform: 'rotate(75deg)'
         },
-        '&:nth-child(10)': { 
+        '&:nth-child(10)': {
             left: '82%',
             top: '55%',
-            transform: 'rotate(45deg)'
         },
-        '&:nth-child(11)': { 
+        '&:nth-child(11)': {
             left: '70%',
             top: '50%',
         },
-        '&:nth-child(12)': { 
+        '&:nth-child(12)': {
             left: '78%',
             top: '65%',
         },
     },
-    text: { 
-        display: 'none',
-
+    text: {
         fontWeight: 'bold',
-        transition: 'all 0.1s linear',
+        position: 'absolute',
+        opacity: '0',
+        transition: 'all 0.5s linear',
+
+        textAlign: 'center'
     }
 }));
 
@@ -117,16 +152,20 @@ function Skills() {
         setState({
             thisSyte: {
                 ...state.thisSyte,
-                backgroundColor: 'blue',
+                backgroundColor: '#6464c4',
                 display: 'block',
                 transform: 'scale(1)',
-                transition: 'all 0.4s linear',
                 width: '15px',
                 height: '15px',
             },
-            textSyte: { 
+            textSyte: {
                 display: 'block',
-                transform: 'rotate(0deg)'
+                transform: 'rotate(0deg)',
+                opacity: '1'
+            },
+            blueBtn: { 
+                backgroundColor: '#6464c4',
+                borderBottom: 'none',
             }
         })
     }
@@ -134,15 +173,19 @@ function Skills() {
         setState({
             wannaLearn: {
                 ...state.wannaLearn,
-                backgroundColor: 'red',
+                backgroundColor: '#f50a0a',
                 transform: 'scale(1)',
-                transition: 'all 0.4s linear',
                 width: '15px',
                 height: '15px',
             },
-            textWannaLearn: { 
+            textWannaLearn: {
                 display: 'block',
-                transform: 'rotate(0deg)'
+                transform: 'rotate(0deg)',
+                opacity: '1'
+            },
+            redBtn: { 
+                borderBottom: 'none',
+                backgroundColor: '#f50a0a'
             }
         })
     }
@@ -150,15 +193,19 @@ function Skills() {
         setState({
             learn: {
                 ...state.learn,
-                backgroundColor: 'orange',
+                backgroundColor: 'yellow',
                 transform: 'scale(1)',
-                transition: 'all 0.4s linear',
                 width: '15px',
                 height: '15px'
             },
-            textLearn: { 
+            textLearn: {
                 display: 'block',
-                transition: 'all 0.1s linear',
+                transform: 'rotate(0deg)',
+                opacity: '1'
+            },
+            yellowBtn: { 
+                borderBottom: 'none',
+                backgroundColor: 'yellow'
             }
         })
     }
@@ -169,9 +216,9 @@ function Skills() {
         <div>
             <h1 className={css.title}>Skills</h1>
             <div className={css.btnContent}>
-                <button className={css.btn} onClick={handleClick}>this site</button>
-                <button className={css.btn} onClick={handleClick2}>wanna learn</button>
-                <button className={css.btn} onClick={handleClick3}>rocking at</button>
+                <button className={css.btn} onClick={handleClick} style={state.blueBtn}>this site</button>
+                <button className={css.btn} onClick={handleClick2} style={state.redBtn}>wanna learn</button>
+                <button className={css.btn} onClick={handleClick3} style={state.yellowBtn}>rocking at</button>
             </div>
             <ul className={css.list}>
                 <li className={css.item} style={state.thisSyte}>
