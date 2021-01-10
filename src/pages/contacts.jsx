@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
         margin: '0 auto',
         display: 'flex',
         justifyContent: 'space-between',
-        [theme.breakpoints.down("md")]: { 
+        [theme.breakpoints.down("md")]: {
             paddingBottom: '2rem'
         }
     },
@@ -54,7 +54,7 @@ const useStyles = makeStyles(theme => ({
         fontSize: '1.5rem',
         fontWeight: 'bold',
         [theme.breakpoints.down("sm")]: {
-          fontSize: '1rem'
+            fontSize: '1rem'
         }
     },
     subText: {
@@ -62,7 +62,7 @@ const useStyles = makeStyles(theme => ({
         color: 'white',
         [theme.breakpoints.down("sm")]: {
             fontSize: '.6rem'
-          }
+        }
     },
     contactItems: {
         margin: 'auto',
@@ -138,118 +138,118 @@ const Contacts = () => {
         })
     }
     return (
-        <Box component='div'>
-            <Grid item sm={11} style={{margin: 'auto'}}>
-                <Typography className={classes.title}>Contact</Typography>
-            </Grid>
-            <Grid container item md={12} className={classes.contactContainer}>
-                <Grid item md={4} xs={8} className={classes.contactItems}>
-                    <Box className={css.contactBox}>
-                        <Box className={css.circleWrapper}>
-                            <Box className={css.circle} />
-                            <PhoneIcon className={css.icon} />
-                        </Box>
-                        <Box>
-                            <Typography className={classes.mainText}>Call me</Typography>
-                            <Typography className={classes.subText}>577077387</Typography>
-                        </Box>
-                    </Box>
-                    <Box className={css.contactBox}>
-                        <Box className={css.circleWrapper}>
-                            <Box className={css.circle} />
-                            <MailIcon className={css.icon} />
-                        </Box>
-                        <Box>
-                            <Typography className={classes.mainText}>Text me</Typography>
-                            <Typography className={classes.subText}>slobodjanik1997@gmail.com</Typography>
-                        </Box>
-                    </Box>
-                    <Box className={css.contactBox}>
-                        <Box className={css.circleWrapper}>
-                            <Box className={css.circle} />
-                            <HomeIcon className={css.icon} />
-                        </Box>
-                        <Box>
-                            <Typography className={classes.mainText}>Address</Typography>
-                            <Typography className={classes.subText}>Jaworska 5, Wroclaw</Typography>
-                        </Box>
-                    </Box>
+            <Box component='div'>
+                <Grid item sm={11} style={{ margin: 'auto' }}>
+                    <Typography className={classes.title}>Contact</Typography>
                 </Grid>
-                <Grid
-                    item md={5} xs={9}
-                    component='form'
-                    name='contacts'
-                    className={classes.form}
-                    onSubmit={handleSubmit}
-                >
-                    <Typography variant='h5' className={classes.subtitle}>
-                        send message
+                <Grid container item md={12} className={classes.contactContainer}>
+                    <Grid item md={4} xs={8} className={classes.contactItems}>
+                        <Box className={css.contactBox}>
+                            <Box className={css.circleWrapper}>
+                                <Box className={css.circle} />
+                                <PhoneIcon className={css.icon} />
+                            </Box>
+                            <Box>
+                                <Typography className={classes.mainText}>Call me</Typography>
+                                <Typography className={classes.subText}>577077387</Typography>
+                            </Box>
+                        </Box>
+                        <Box className={css.contactBox}>
+                            <Box className={css.circleWrapper}>
+                                <Box className={css.circle} />
+                                <MailIcon className={css.icon} />
+                            </Box>
+                            <Box>
+                                <Typography className={classes.mainText}>Text me</Typography>
+                                <Typography className={classes.subText}>slobodjanik1997@gmail.com</Typography>
+                            </Box>
+                        </Box>
+                        <Box className={css.contactBox}>
+                            <Box className={css.circleWrapper}>
+                                <Box className={css.circle} />
+                                <HomeIcon className={css.icon} />
+                            </Box>
+                            <Box>
+                                <Typography className={classes.mainText}>Address</Typography>
+                                <Typography className={classes.subText}>Jaworska 5, Wroclaw</Typography>
+                            </Box>
+                        </Box>
+                    </Grid>
+                    <Grid
+                        item md={5} xs={9}
+                        component='form'
+                        name='contacts'
+                        className={classes.form}
+                        onSubmit={handleSubmit}
+                    >
+                        <Typography variant='h5' className={classes.subtitle}>
+                            send message
                     </Typography>
-                    <InputField type='hidden' name='form-name' value='contacts' />
-                    <InputField
-                        required
-                        fullWidth={true}
-                        label='Name'
-                        variant='outlined'
-                        inputProps={{ style: { color: 'white' } }}
-                        margin='dense'
-                        size='small'
-                        type="text"
-                        name="name"
-                        value={data.name}
-                        onChange={handleChange} />
+                        <InputField type='hidden' name='form-name' value='contacts' />
+                        <InputField
+                            required
+                            fullWidth={true}
+                            label='Name'
+                            variant='outlined'
+                            inputProps={{ style: { color: 'white' } }}
+                            margin='dense'
+                            size='small'
+                            type="text"
+                            name="name"
+                            value={data.name}
+                            onChange={handleChange} />
 
-                    <InputField
-                        required
-                        fullWidth={true}
-                        label='Email'
-                        variant='outlined'
-                        inputProps={{ style: { color: 'white' } }}
-                        margin='dense'
-                        size='small'
-                        type="email"
-                        name="email"
-                        value={data.email}
-                        onChange={handleChange} />
+                        <InputField
+                            required
+                            fullWidth={true}
+                            label='Email'
+                            variant='outlined'
+                            inputProps={{ style: { color: 'white' } }}
+                            margin='dense'
+                            size='small'
+                            type="email"
+                            name="email"
+                            value={data.email}
+                            onChange={handleChange} />
 
-                    <InputField
-                        required
-                        fullWidth={true}
-                        label='Company name'
-                        variant='outlined'
-                        inputProps={{ style: { color: 'white' } }}
-                        margin='dense'
-                        size='small'
-                        type="text"
-                        name="company"
-                        value={data.company}
-                        onChange={handleChange} />
+                        <InputField
+                            required
+                            fullWidth={true}
+                            label='Company name'
+                            variant='outlined'
+                            inputProps={{ style: { color: 'white' } }}
+                            margin='dense'
+                            size='small'
+                            type="text"
+                            name="company"
+                            value={data.company}
+                            onChange={handleChange} />
 
-                    <InputField
-                        required
-                        fullWidth={true}
-                        multiline={true}
-                        rows={5}
-                        label='Message'
-                        variant='outlined'
-                        inputProps={{ style: { color: 'white' } }}
-                        margin='dense'
-                        size='small'
-                        name="message"
-                        value={data.message}
-                        onChange={handleChange} />
+                        <InputField
+                            required
+                            fullWidth={true}
+                            multiline={true}
+                            rows={5}
+                            label='Message'
+                            variant='outlined'
+                            inputProps={{ style: { color: 'white' } }}
+                            margin='dense'
+                            size='small'
+                            name="message"
+                            value={data.message}
+                            onChange={handleChange} />
 
-                    <Button
-                        className={classes.button}
-                        variant='outlined'
-                        fullWidth={true}
-                        endIcon={<SendIcon />}
-                        type='submit'>
-                        contact me
+                        <Button
+                            className={classes.button}
+                            variant='outlined'
+                            fullWidth={true}
+                            endIcon={<SendIcon />}
+                            type='submit'>
+                            contact me
                     </Button>
+                    </Grid>
                 </Grid>
-            </Grid>
-        </Box>
+            </Box>
     );
 };
 

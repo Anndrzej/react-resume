@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { AppBar, Toolbar, ListItem, IconButton, List, Typography, Box, Grid } from '@material-ui/core';
 import { Close } from '@material-ui/icons';
-import MenuIcon from '@material-ui/icons/Menu';
 import { makeStyles } from '@material-ui/core';
 import SideBar from '@material-ui/core/Drawer';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import change from '../App.css';
 
 
@@ -15,8 +14,22 @@ const useStyle = makeStyles(theme => ({
     height: '100vh',
     margin: '0 auto',
   },
-  burgerIcon: {
-    color: '#fff',
+  burger: {
+    cursor: 'pointer',
+    width: '20px',
+    height: 'auto',
+    
+    '&:hover div:nth-child(2)': { 
+      width: '10px'
+  }
+  },
+  line: { 
+    width: '20px',
+    height: '2px',
+    backgroundColor: '#fff',
+    marginTop: '.2rem',
+    cursor: 'pointer',
+    transition: '.2s linear',
   },
   closeIcon: {
     color: "#fff",
@@ -24,16 +37,14 @@ const useStyle = makeStyles(theme => ({
     top: '0%',
     left: '0%',
     transform: 'translate(50%, 17%)',
-    [theme.breakpoints.down('sm')]: { 
+    [theme.breakpoints.down('sm')]: {
       transform: 'translate(20%, 17%)'
     },
-    [theme.breakpoints.down('xs')]: { 
+    [theme.breakpoints.down('xs')]: {
       transform: 'translate(5%, 17%)'
     }
   },
-  listItem: { 
-    position: 'relative',
-
+  listItem: {
     color: '#fff',
     padding: '1rem',
     margin: '0',
@@ -43,27 +54,36 @@ const useStyle = makeStyles(theme => ({
     flexDirection: 'column',
     alignItems: 'start',
 
-    borderRight: '1px solid #fff',
-    borderLeft: '1px solid #fff',
     backgroundColor: '#000',
-    '&:hover': { 
+    '&:after': {
+      content: '""',
+      position: 'absolute',
+      top: '0',
+      left: '0',
+      right: '0',
+      bottom: '0',
+      borderLeft: '1px solid #fff',
+      borderRight: '1px solid #fff',
+  },
+  
+    '&:hover': {
       color: '#000',
       backgroundColor: '#fff',
       transition: '.5s linear',
     },
-    [theme.breakpoints.down('sm')]: { 
+    [theme.breakpoints.down('sm')]: {
       width: '50%',
       height: '50vh',
       borderBottom: '1px solid #fff',
-      '&:last-child': { 
+      '&:last-child': {
         width: '100%',
       }
     },
-    [theme.breakpoints.down('xs')]: { 
+    [theme.breakpoints.down('xs')]: {
       width: '100%',
     }
   },
-  title: { 
+  title: {
     fontSize: '2rem',
     fontWeight: '100',
     [theme.breakpoints.down('sm')]: {
@@ -71,58 +91,69 @@ const useStyle = makeStyles(theme => ({
       padding: '0',
     },
   },
-  num: { 
+  num: {
     fontSize: '4rem',
     fontWeight: 'bold',
-    
+
     marginTop: '5rem',
     [theme.breakpoints.down('xs')]: {
       fontSize: '2rem',
     },
 
   },
-  about: { 
+  about: {
     position: 'absolute',
     bottom: '5%',
 
     color: 'black',
     fontSize: '.7rem',
   },
-  '@global': { 
-    '.MuiAppBar-positionFixed': { 
+  '@global': {
+    '.MuiAppBar-positionFixed': {
       position: 'unset'
     }
   }
 
 }));
 
+
 const menuItems = [
   {
+    id: 1,
     listText: 'Home',
+    listName: 'Home Page',
     listPath: '/',
     listNum: '1',
     listAbout: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut suscipit illum asperiores eveniet, autem inventore itaque vitae aliquid, animi ut fuga ipsa impedit iusto quae alias eum corporis iste quisquam.'
   },
   {
+    id: 2,
     listText: 'Resume',
+    listName: 'Resume Page',
     listPath: '/resume',
     listNum: '2',
     listAbout: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut suscipit illum asperiores eveniet, autem inventore itaque vitae aliquid, animi ut fuga ipsa impedit iusto quae alias eum corporis iste quisquam.'
   },
   {
+    id: 3,
     listText: 'Skills',
+    listName: 'Skills Page',
     listPath: '/skills',
     listNum: '3',
     listAbout: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut suscipit illum asperiores eveniet, autem inventore itaque vitae aliquid, animi ut fuga ipsa impedit iusto quae alias eum corporis iste quisquam.'
   },
   {
+    id: 4,
     listText: 'Contacts',
+    listName: 'Contacts Page',
     listPath: '/contacts',
     listNum: '4',
     listAbout: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut suscipit illum asperiores eveniet, autem inventore itaque vitae aliquid, animi ut fuga ipsa impedit iusto quae alias eum corporis iste quisquam.'
   },
   {
+    id: 5,
     listText: 'About',
+    listName: 'About Page',
     listPath: '/about',
     listNum: '5',
     listAbout: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut suscipit illum asperiores eveniet, autem inventore itaque vitae aliquid, animi ut fuga ipsa impedit iusto quae alias eum corporis iste quisquam.'
@@ -134,7 +165,7 @@ function Header() {
   const [state, setState] = useState({
     right: false        // hidden from the right side by default
   })
-
+  
   const toggleSlider = (slider, open) => () => {
     setState({ ...state, [slider]: open });
   };
@@ -142,10 +173,10 @@ function Header() {
   const classes = useStyle();
 
   const sideList = () => (
-    <Grid item xs={9} sm={10}  className={classes.menuSliderContainer} component="div">
-      <List style={{padding: '0'}}>
+    <Grid item xs={9} sm={10} className={classes.menuSliderContainer} component="div">
+      <List style={{ padding: '0' }}>
         {menuItems.map((lsitem, key) => (
-          <ListItem className={classes.listItem} key={key} component={Link} to={lsitem.listPath}>
+          <ListItem className={classes.listItem} key={key.id} component={Link} to={lsitem.listPath}>
             <Typography className={classes.num}>{lsitem.listNum}</Typography>
             <Typography className={classes.title}>{lsitem.listText}</Typography>
             <Typography className={classes.about}>{lsitem.listAbout}</Typography>
@@ -154,28 +185,28 @@ function Header() {
       </List>
     </Grid>
   )
+
   return (
-    <>
       <Box component='nav'>
         <AppBar style={{ background: '#222' }}>
           <Toolbar>
-            <IconButton onClick={toggleSlider('right', true)}>
-              <MenuIcon className={classes.burgerIcon} />
-            </IconButton >
+            <div className={classes.burger} onClick={toggleSlider('right', true)}>
+              <div className={classes.line}></div>
+              <div className={classes.line}></div>
+              <div className={classes.line}></div>
+            </div>
             <Typography>
-              Home Page
+
             </Typography>
             <SideBar className={change} anchor='top' open={state.right} onClick={toggleSlider('right', false)}>
-              <IconButton className={classes.closeIcon}  onClick={toggleSlider('right', false)}>
+              <IconButton className={classes.closeIcon} onClick={toggleSlider('right', false)}>
                 <Close />
               </IconButton>
               {sideList('right')}
             </SideBar>
           </Toolbar>
         </AppBar>
-
       </Box>
-    </>
   )
 }
 

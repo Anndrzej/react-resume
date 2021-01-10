@@ -29,12 +29,12 @@ const useStyles = makeStyles(theme => ({
         boxShadow: '0px 0px 20px 3px rgba(0,0,0,0.36)',
         marginBottom: '15rem',
     },
-    contentContainer: { 
+    contentContainer: {
         '&:nth-of-type(3n)': {
             marginRight: '0',
             marginLeft: 'auto',
             textAlign: 'end'
-          },
+        },
     },
     company: {
         color: 'rgb(249, 108, 119)',
@@ -73,17 +73,18 @@ function Resume() {
 
     useEffect(() => {
         gsap.from(wrapperRef.current, {
-            autoAlpha: 0, 
-            x:150,
+            autoAlpha: 0,
+            x: 150,
             ease: 'ease-in-out',
             delay: 1
-          });
+        });
 
         revealRefs.current.forEach((el, index) => {
 
-            gsap.fromTo(el, {autoAlpha: 0, x: -100}, {duration: 1, autoAlpha: 1, x: 0,
+            gsap.fromTo(el, { autoAlpha: 0, x: -100 }, {
+                duration: 1, autoAlpha: 1, x: 0,
                 scrollTrigger: {
-                    id: `section-${index+1}`,
+                    id: `section-${index + 1}`,
                     trigger: el,
                     start: 'top center+=100',
                     toggleActions: 'play none none reverse'
@@ -97,11 +98,11 @@ function Resume() {
         if (el && !revealRefs.current.includes(el)) {
             revealRefs.current.push(el);
         }
-      };
+    };
 
-      //END GSAP
+    //END GSAP
 
-    const [sections] = useState ([
+    const [sections] = useState([
         {
             proffesion: 'web design',
             company: 'company name where worked',
@@ -123,28 +124,26 @@ function Resume() {
     ])
 
     return (
-        <Box style={{position: 'absolute'}}>
-            <Box className={classes.firstPage}>
-                <Typography className={classes.title}> Working Experience</Typography>
-                <Box component='div' className={css.middle}>
-                    <Box className={css.mouse}></Box>
+            <Box style={{ position: 'absolute' }}>
+                <Box className={classes.firstPage}>
+                    <Typography className={classes.title}> Working Experience</Typography>
+                    <Box component='div' className={css.middle}>
+                        <Box className={css.mouse}></Box>
+                    </Box>
                 </Box>
-            </Box>
-            {sections.map(( section) => (
-            <Grid item md={8} className={classes.contentContainer} ref={addToRefs}>
-                <Typography className={classes.year}>{section.year}</Typography>
-                    <Grid  ref={wrapperRef} className={classes.textWrapper}>
-                        <Typography className={classes.proffesion}>{section.proffesion}</Typography>
-                        <Typography className={classes.company}>{section.company}</Typography>
-                <Typography className={classes.text}>{section.text}</Typography>
+                {sections.map((section, key) => (
+                    <Grid item md={8} className={classes.contentContainer} key={key} ref={addToRefs}>
+                        <Typography className={classes.year}>{section.year}</Typography>
+                        <Grid ref={wrapperRef} className={classes.textWrapper}>
+                            <Typography className={classes.proffesion}>{section.proffesion}</Typography>
+                            <Typography className={classes.company}>{section.company}</Typography>
+                            <Typography className={classes.text}>{section.text}</Typography>
+                        </Grid>
                     </Grid>
-               
-            </Grid>
-             ))
-            }
-            <Footer />
-        </Box>
-
+                ))
+                }
+                <Footer />
+            </Box>
     )
 }
 

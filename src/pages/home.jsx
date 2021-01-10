@@ -20,28 +20,28 @@ function Home() {
 
   return (
     <Box component='main'>
-    <Footer />
-    <Particles className={classes.particlesCanva}
-      params={{
-        "particles": {
-          "number": {
-            "value": 90
+      <Footer />
+      <Particles className={classes.particlesCanva}
+        params={{
+          "particles": {
+            "number": {
+              "value": 90
+            },
+            "size": {
+              "value": 1
+            }
           },
-          "size": {
-            "value": 1
-          }
-        },
-        "interactivity": {
-          "events": {
-            "onhover": {
-              "enable": true,
-              "mode": "repulse"
+          "interactivity": {
+            "events": {
+              "onhover": {
+                "enable": true,
+                "mode": "repulse"
+              }
             }
           }
-        }
-      }} />
+        }} />
     </Box>
-    )
+  )
 }
 
 export default Home;

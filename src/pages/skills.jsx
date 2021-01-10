@@ -32,8 +32,8 @@ const useStyles = makeStyles(theme => ({
 
         borderRadius: '2px',
         transition: 'all .3s',
-	    position: 'relative',
-	    overflow: 'hidden',
+        position: 'relative',
+        overflow: 'hidden',
         zIndex: 1,
         '&:after': {
             content: '""',
@@ -56,13 +56,13 @@ const useStyles = makeStyles(theme => ({
             zIndex: -1,
         },
 
-        '&:hover': { 
+        '&:hover': {
             color: '#fff',
-            '&:before': { 
+            '&:before': {
                 height: '100%'
             }
         },
-        
+
 
     },
     item: {
@@ -129,7 +129,9 @@ const useStyles = makeStyles(theme => ({
         opacity: '0',
         transition: 'all 0.5s linear',
 
-        textAlign: 'center'
+        textAlign: 'center',
+
+        color: 'white'
     }
 }));
 
@@ -163,7 +165,7 @@ function Skills() {
                 transform: 'rotate(0deg)',
                 opacity: '1'
             },
-            blueBtn: { 
+            blueBtn: {
                 backgroundColor: '#6464c4',
                 borderBottom: 'none',
             }
@@ -183,7 +185,7 @@ function Skills() {
                 transform: 'rotate(0deg)',
                 opacity: '1'
             },
-            redBtn: { 
+            redBtn: {
                 borderBottom: 'none',
                 backgroundColor: '#f50a0a'
             }
@@ -203,7 +205,7 @@ function Skills() {
                 transform: 'rotate(0deg)',
                 opacity: '1'
             },
-            yellowBtn: { 
+            yellowBtn: {
                 borderBottom: 'none',
                 backgroundColor: 'yellow'
             }
@@ -213,52 +215,52 @@ function Skills() {
 
     const css = useStyles()
     return (
-        <div>
-            <h1 className={css.title}>Skills</h1>
-            <div className={css.btnContent}>
-                <button className={css.btn} onClick={handleClick} style={state.blueBtn}>this site</button>
-                <button className={css.btn} onClick={handleClick2} style={state.redBtn}>wanna learn</button>
-                <button className={css.btn} onClick={handleClick3} style={state.yellowBtn}>rocking at</button>
+            <div>
+                <h1 className={css.title}>Skills</h1>
+                <div className={css.btnContent}>
+                    <button className={css.btn} onClick={handleClick} style={state.blueBtn}>this site</button>
+                    <button className={css.btn} onClick={handleClick2} style={state.redBtn}>wanna learn</button>
+                    <button className={css.btn} onClick={handleClick3} style={state.yellowBtn}>rocking at</button>
+                </div>
+                <ul className={css.list}>
+                    <li className={css.item} style={state.thisSyte}>
+                        <p className={css.text} style={state.textSyte}>Material UI</p>
+                    </li>
+                    <li className={css.item} style={state.wannaLearn}>
+                        <p className={css.text} style={state.textWannaLearn}>Saga</p>
+                    </li>
+                    <li className={css.item} style={state.thisSyte}>
+                        <p className={css.text} style={state.textSyte}>CSS</p>
+                    </li>
+                    <li className={css.item} style={state.learn}>
+                        <p className={css.text} style={state.textLearn}>JavaScript</p>
+                    </li>
+                    <li className={css.item} style={state.wannaLearn}>
+                        <p className={css.text} style={state.textWannaLearn}>Next Js</p>
+                    </li>
+                    <li className={css.item} style={state.learn}>
+                        <p className={css.text} style={state.textLearn}>Redux</p>
+                    </li>
+                    <li className={css.item} style={state.thisSyte}>
+                        <p className={css.text} style={state.textSyte}>React JS</p>
+                    </li>
+                    <li className={css.item} style={state.thisSyte}>
+                        <p className={css.text} style={state.textSyte}>Parallax</p>
+                    </li>
+                    <li className={css.item} style={state.wannaLearn}>
+                        <p className={css.text} style={state.textWannaLearn}>TypeScript</p>
+                    </li>
+                    <li className={css.item} style={state.learn}>
+                        <p className={css.text} style={state.textLearn}>React Js</p>
+                    </li>
+                    <li className={css.item} style={state.thisSyte}>
+                        <p className={css.text} style={state.textSyte}>GSAP</p>
+                    </li>
+                    <li className={css.item} style={state.wannaLearn}>
+                        <p className={css.text} style={state.textWannaLearn}>React Native</p>
+                    </li>
+                </ul>
             </div>
-            <ul className={css.list}>
-                <li className={css.item} style={state.thisSyte}>
-                    <p className={css.text} style={state.textSyte}>Material UI</p>
-                </li>
-                <li className={css.item} style={state.wannaLearn}>
-                    <p className={css.text} style={state.textWannaLearn}>Saga</p>
-                </li>
-                <li className={css.item} style={state.thisSyte}>
-                    <p className={css.text} style={state.textSyte}>CSS</p>
-                </li>
-                <li className={css.item} style={state.learn}>
-                    <p className={css.text} style={state.textLearn}>JavaScript</p>
-                </li>
-                <li className={css.item} style={state.wannaLearn}>
-                    <p className={css.text} style={state.textWannaLearn}>Next Js</p>
-                </li>
-                <li className={css.item} style={state.learn}>
-                    <p className={css.text} style={state.textLearn}>Redux</p>
-                </li>
-                <li className={css.item} style={state.thisSyte}>
-                    <p className={css.text} style={state.textSyte}>React JS</p>
-                </li>
-                <li className={css.item} style={state.thisSyte}>
-                    <p className={css.text} style={state.textSyte}>Parallax</p>
-                </li>
-                <li className={css.item} style={state.wannaLearn}>
-                    <p className={css.text} style={state.textWannaLearn}>TypeScript</p>
-                </li>
-                <li className={css.item} style={state.learn}>
-                    <p className={css.text} style={state.textLearn}>React Js</p>
-                </li>
-                <li className={css.item} style={state.thisSyte}>
-                    <p className={css.text} style={state.textSyte}>GSAP</p>
-                </li>
-                <li className={css.item} style={state.wannaLearn}>
-                    <p className={css.text} style={state.textWannaLearn}>React Native</p>
-                </li>
-            </ul>
-        </div>
     );
 };
 

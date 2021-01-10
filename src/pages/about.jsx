@@ -13,7 +13,6 @@ const useStyle = makeStyles(theme => ({
     fontSize: '8rem',
     fontWeight: 'bold',
     textTransform: 'capitalize',
-    paddingTop: '3rem',
     [theme.breakpoints.down('xs')]: {
       fontSize: '5rem',
     }
@@ -57,10 +56,10 @@ const useStyle = makeStyles(theme => ({
     }
   },
   dots: {
-    marginTop: '9rem',
+    marginTop: '8rem',
     float: 'right',
     [theme.breakpoints.down('sm')]: {
-      marginTop: '10rem',
+      marginTop: '5rem',
     }
   },
   
@@ -88,7 +87,6 @@ function About() {
         <Grid className={classes.dots} component='img' src={dots} item xs={8} sm={5} md={3}/>
       </Container>
     </Box>
-
   )
 }
 
