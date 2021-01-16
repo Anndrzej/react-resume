@@ -1,12 +1,14 @@
-import { Box, Grid, Typography, Container } from '@material-ui/core';
+import { Box, Grid, Typography, Container, Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import dots from '../img/dotted-shape.png';
+import Interesting from '@material-ui/icons/EmojiObjects';
 import React from 'react';
+import { useState } from 'react';
 
 const useStyle = makeStyles(theme => ({
   wrapper: {
     margin: '0 auto',
-    
+
   },
   title: {
     color: '#2b2c2f',
@@ -55,17 +57,79 @@ const useStyle = makeStyles(theme => ({
       padding: '0rem 2rem 0rem 2rem'
     }
   },
+  btn: {
+    width: '15rem',
+    height: '3.8rem',
+    marginTop: '1rem',
+    marginBottom: '1rem',
+    fontSize: '1rem',
+
+    textTransform: 'none',
+    cursor: 'pointer',
+    color: '#fff',
+    borderRadius: '2px',
+
+    transition: 'all .3s',
+    position: 'relative',
+    left: '50%',
+    right: '50%',
+    transform: 'translate(-50%)',
+    '&:after': {
+      content: '""',
+      position: 'absolute',
+      bottom: 0,
+      left: 0,
+      width: '100%',
+      height: '100%',
+      zIndex: -2,
+    },
+    '&:before': {
+      content: '""',
+      position: 'absolute',
+      bottom: 0,
+      left: 0,
+      width: '100%',
+      height: '0%',
+      backgroundColor: '#f96c77',
+      transition: 'all .3s',
+      zIndex: -1,
+    },
+
+    '&:hover': {
+      color: '#000',
+      '&:before': {
+        height: '100%',
+        borderRadius: '2px',
+      }
+    },
+  },
+  int: {
+    position: 'absolute',
+    right: '1rem',
+    bottom: '1rem',
+    fill: 'yellow',
+
+    cursor: 'pointer',
+
+
+    transition: '.2s linear',
+    '&:hover': { 
+      transform: 'translateY(-30%)'
+    }
+  },
   dots: {
-    marginTop: '8rem',
+    marginTop: '3rem',
     float: 'right',
     [theme.breakpoints.down('sm')]: {
       marginTop: '5rem',
     }
   },
-  
+
 }));
 
 function About() {
+
+  
 
   const classes = useStyle();
 
@@ -83,8 +147,10 @@ function About() {
           <Typography component='article' className={classes.aboutText}>
             Mainly I want to focus on learning JavaScript. Also, I put a lot of work to write a clear and semantically correct code.
         </Typography>
+          <Button className={classes.btn}>Download my resume</Button>
+            <Interesting className={classes.int} />
         </Grid>
-        <Grid className={classes.dots} component='img' src={dots} item xs={8} sm={5} md={3}/>
+        <Grid className={classes.dots} component='img' src={dots} item xs={8} sm={5} md={3} />
       </Container>
     </Box>
   )

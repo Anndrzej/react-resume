@@ -1,22 +1,11 @@
 import React from 'react'
-import { Container, Box, BottomNavigation, ListItem, Typography } from '@material-ui/core';
+import { Container, Box, ListItem, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import { LinkedIn, Facebook } from '@material-ui/icons';
 import MailIcon from '@material-ui/icons/Mail';
 
 
-// const contactLinks = [
-//     {
-//         github: 'https://github.com/Anndersonn'
-//     },
-//     {
-//         linkedin: 'https://www.linkedin.com/in/andrzej-slobodianyk-746a96177/'
-//     },
-//     {
-//         facebook: 'https://www.facebook.com/profile.php?id=100006173475893'
-//     }
-// ]
 
 const useStyle = makeStyles(theme => ({
     box: {
@@ -61,7 +50,7 @@ function Footer() {
     return (
         <footer>
             <Container>
-                <BottomNavigation className={classes.box}>
+                <div className={classes.box}>
                     <Box className={classes.mailItems}>
                         <MailIcon className={classes.mailLink}></MailIcon>
                         <Typography className={classes.mailText}>slobodjanik1997@gmail.com</Typography>
@@ -71,7 +60,7 @@ function Footer() {
                         <a rel="noreferrer" className={classes.linkIcons} href="https://www.linkedin.com/in/andrzej-slobodianyk-746a96177/" target="_blank"><LinkedIn /></a>
                         <a rel="noreferrer" className={classes.linkIcons} href="https://www.facebook.com/profile.php?id=100006173475893" target="_blank"><Facebook /></a>
                     </ListItem>
-                </BottomNavigation>
+                </div>
             </Container>
         </footer>
     )

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { makeStyles } from '@material-ui/core';
+import { makeStyles, Button } from '@material-ui/core';
 
 
 
@@ -24,17 +24,10 @@ const useStyles = makeStyles(theme => ({
         height: '3.8rem',
         marginTop: '3rem',
         fontSize: '1.5rem',
-        border: 'none',
-        backgroundColor: 'transparent',
-        outline: 'none',
-
-        cursor: 'pointer',
-
-        borderRadius: '2px',
+        textTransform: 'none',
+        borderRadius: '5px',
         transition: 'all .3s',
         position: 'relative',
-        overflow: 'hidden',
-        zIndex: 1,
         '&:after': {
             content: '""',
             position: 'absolute',
@@ -55,11 +48,11 @@ const useStyles = makeStyles(theme => ({
             transition: 'all .3s',
             zIndex: -1,
         },
-
         '&:hover': {
             color: '#fff',
             '&:before': {
-                height: '100%'
+                height: '100%',
+                borderRadius: '2px',
             }
         },
 
@@ -218,9 +211,9 @@ function Skills() {
             <div>
                 <h1 className={css.title}>Skills</h1>
                 <div className={css.btnContent}>
-                    <button className={css.btn} onClick={handleClick} style={state.blueBtn}>this site</button>
-                    <button className={css.btn} onClick={handleClick2} style={state.redBtn}>wanna learn</button>
-                    <button className={css.btn} onClick={handleClick3} style={state.yellowBtn}>rocking at</button>
+                    <Button className={css.btn} onClick={handleClick} style={state.blueBtn}>this site</Button>
+                    <Button className={css.btn} onClick={handleClick2} style={state.redBtn}>wanna learn</Button>
+                    <Button className={css.btn} onClick={handleClick3} style={state.yellowBtn}>rocking at</Button>
                 </div>
                 <ul className={css.list}>
                     <li className={css.item} style={state.thisSyte}>

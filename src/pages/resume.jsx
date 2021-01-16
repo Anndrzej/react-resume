@@ -5,13 +5,20 @@ import { gsap } from 'gsap';
 import { useEffect, useState } from 'react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import css from './resume.module.css';
-import Footer from '../component/footer'
+import Footer from '../component/footer';
 
 
 gsap.registerPlugin(ScrollTrigger);
 
 
 const useStyles = makeStyles(theme => ({
+    dots: {
+        position: 'absolute',
+        zIndex: '-1',
+
+
+        width: '100%'
+    },
     firstPage: {
         height: '100vh'
     },
@@ -57,7 +64,8 @@ const useStyles = makeStyles(theme => ({
         fontSize: '8rem',
         fontWeight: 'bold',
         color: '#2b2c2f',
-    }
+    },
+
 }));
 
 

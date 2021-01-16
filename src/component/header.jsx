@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { AppBar, Toolbar, ListItem, IconButton, List, Typography, Box, Grid } from '@material-ui/core';
-import { Close } from '@material-ui/icons';
 import { makeStyles } from '@material-ui/core';
 import SideBar from '@material-ui/core/Drawer';
-import {Link} from 'react-router-dom';
-import change from '../App.css';
+import { Link } from 'react-router-dom';
+import logo from '../img/my-logo.png';
 
 
 
@@ -18,12 +17,13 @@ const useStyle = makeStyles(theme => ({
     cursor: 'pointer',
     width: '20px',
     height: 'auto',
-    
-    '&:hover div:nth-child(2)': { 
+    zIndex: '1500',
+
+    '&:hover div:nth-child(2)': {
       width: '10px'
-  }
+    },
   },
-  line: { 
+  line: {
     width: '20px',
     height: '2px',
     backgroundColor: '#fff',
@@ -43,6 +43,13 @@ const useStyle = makeStyles(theme => ({
     [theme.breakpoints.down('xs')]: {
       transform: 'translate(5%, 17%)'
     }
+  },
+  logo: { 
+    width: '40px',
+    height: '40px', 
+    position: 'absolute',
+    zIndex: '1500',
+    right: '1rem'
   },
   listItem: {
     color: '#fff',
@@ -64,8 +71,8 @@ const useStyle = makeStyles(theme => ({
       bottom: '0',
       borderLeft: '1px solid #fff',
       borderRight: '1px solid #fff',
-  },
-  
+    },
+
     '&:hover': {
       color: '#000',
       backgroundColor: '#fff',
@@ -111,6 +118,9 @@ const useStyle = makeStyles(theme => ({
   '@global': {
     '.MuiAppBar-positionFixed': {
       position: 'unset'
+    },
+    '.MuiPaper-root': {
+      backgroundColor: '#000'
     }
   }
 
@@ -165,7 +175,7 @@ function Header() {
   const [state, setState] = useState({
     right: false        // hidden from the right side by default
   })
-  
+
   const toggleSlider = (slider, open) => () => {
     setState({ ...state, [slider]: open });
   };
@@ -176,7 +186,7 @@ function Header() {
     <Grid item xs={9} sm={10} className={classes.menuSliderContainer} component="div">
       <List style={{ padding: '0' }}>
         {menuItems.map((lsitem, key) => (
-          <ListItem className={classes.listItem} key={key.id} component={Link} to={lsitem.listPath}>
+          <ListItem className={classes.listItem} key={key} component={Link} to={lsitem.listPath}>
             <Typography className={classes.num}>{lsitem.listNum}</Typography>
             <Typography className={classes.title}>{lsitem.listText}</Typography>
             <Typography className={classes.about}>{lsitem.listAbout}</Typography>
@@ -187,26 +197,23 @@ function Header() {
   )
 
   return (
-      <Box component='nav'>
-        <AppBar style={{ background: '#222' }}>
-          <Toolbar>
-            <div className={classes.burger} onClick={toggleSlider('right', true)}>
-              <div className={classes.line}></div>
-              <div className={classes.line}></div>
-              <div className={classes.line}></div>
-            </div>
-            <Typography>
-
-            </Typography>
-            <SideBar className={change} anchor='top' open={state.right} onClick={toggleSlider('right', false)}>
-              <IconButton className={classes.closeIcon} onClick={toggleSlider('right', false)}>
-                <Close />
-              </IconButton>
-              {sideList('right')}
-            </SideBar>
-          </Toolbar>
-        </AppBar>
-      </Box>
+    <Box component='nav'>
+      <AppBar style={{ background: '#222' }}>
+        <Toolbar>
+          <div className={classes.burger} onClick={toggleSlider('right', true)}>
+            <div className={classes.line}></div>
+            <div className={classes.line}></div>
+            <div className={classes.line}></div>
+          </div>
+          <img className={classes.logo} src={logo}></img>
+          <SideBar anchor='top' open={state.right} onClick={toggleSlider('right', false)}>
+            <IconButton className={classes.closeIcon} onClick={toggleSlider('right', false)}>
+            </IconButton>
+            {sideList('right')}
+          </SideBar>
+        </Toolbar>
+      </AppBar>
+    </Box>
   )
 }
 
