@@ -2,8 +2,8 @@ import { Box, Grid, Typography, Container, Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import dots from '../img/dotted-shape.png';
 import Interesting from '@material-ui/icons/EmojiObjects';
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
+import Heroes from '../modal/heroes';
 
 const useStyle = makeStyles(theme => ({
   wrapper: {
@@ -105,15 +105,14 @@ const useStyle = makeStyles(theme => ({
   },
   int: {
     position: 'absolute',
+    fill: 'yellow',
+    zIndex: '1500',
+    cursor: 'pointer',
     right: '1rem',
     bottom: '1rem',
-    fill: 'yellow',
-
-    cursor: 'pointer',
-
 
     transition: '.2s linear',
-    '&:hover': { 
+    '&:hover': {
       transform: 'translateY(-30%)'
     }
   },
@@ -129,10 +128,13 @@ const useStyle = makeStyles(theme => ({
 
 function About() {
 
-  
+  const [state, setState] = useState(false);
 
+  const testStyle = { 
+    opacity: '1',
+    
+  }
   const classes = useStyle();
-
   return (
     <Box component='div'>
       <Container className={classes.wrapper}>
@@ -148,7 +150,8 @@ function About() {
             Mainly I want to focus on learning JavaScript. Also, I put a lot of work to write a clear and semantically correct code.
         </Typography>
           <Button className={classes.btn}>Download my resume</Button>
-            <Interesting className={classes.int} />
+          {state && <Heroes style={state ? testStyle : null}/>}
+            <Interesting  onClick={() => setState(state => !state)} className={classes.int} />
         </Grid>
         <Grid className={classes.dots} component='img' src={dots} item xs={8} sm={5} md={3} />
       </Container>

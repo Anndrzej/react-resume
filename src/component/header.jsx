@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core';
 import SideBar from '@material-ui/core/Drawer';
 import { Link } from 'react-router-dom';
 import logo from '../img/my-logo.png';
-
+import s from './header.module.css'
 
 
 const useStyle = makeStyles(theme => ({
@@ -51,45 +51,45 @@ const useStyle = makeStyles(theme => ({
     zIndex: '1500',
     right: '1rem'
   },
-  listItem: {
-    color: '#fff',
-    padding: '1rem',
-    margin: '0',
-    height: '100vh',
-    width: '20%',
-    display: 'inline-flex',
-    flexDirection: 'column',
-    alignItems: 'start',
+  // listItem: {
+  //   color: '#fff',
+  //   padding: '1rem',
+  //   margin: '0',
+  //   height: '100vh',
+  //   width: '20%',
+  //   display: 'inline-flex',
+  //   flexDirection: 'column',
+  //   alignItems: 'start',
 
-    backgroundColor: '#000',
-    '&:after': {
-      content: '""',
-      position: 'absolute',
-      top: '0',
-      left: '0',
-      right: '0',
-      bottom: '0',
-      borderLeft: '1px solid #fff',
-      borderRight: '1px solid #fff',
-    },
+  //   backgroundColor: '#000',
+  //   '&:after': {
+  //     content: '""',
+  //     position: 'absolute',
+  //     top: '0',
+  //     left: '0',
+  //     right: '0',
+  //     bottom: '0',
+  //     borderLeft: '1px solid #fff',
+  //     borderRight: '1px solid #fff',
+  //   },
 
-    '&:hover': {
-      color: '#000',
-      backgroundColor: '#fff',
-      transition: '.5s linear',
-    },
-    [theme.breakpoints.down('sm')]: {
-      width: '50%',
-      height: '50vh',
-      borderBottom: '1px solid #fff',
-      '&:last-child': {
-        width: '100%',
-      }
-    },
-    [theme.breakpoints.down('xs')]: {
-      width: '100%',
-    }
-  },
+  //   '&:hover': {
+  //     color: '#000',
+  //     backgroundColor: '#fff',
+  //     transition: '.5s linear',
+  //   },
+  //   [theme.breakpoints.down('sm')]: {
+  //     width: '50%',
+  //     height: '50vh',
+  //     borderBottom: '1px solid #fff',
+  //     '&:last-child': {
+  //       width: '100%',
+  //     }
+  //   },
+  //   [theme.breakpoints.down('xs')]: {
+  //     width: '100%',
+  //   }
+  // },
   title: {
     fontSize: '2rem',
     fontWeight: '100',
@@ -186,7 +186,7 @@ function Header() {
     <Grid item xs={9} sm={10} className={classes.menuSliderContainer} component="div">
       <List style={{ padding: '0' }}>
         {menuItems.map((lsitem, key) => (
-          <ListItem className={classes.listItem} key={key} component={Link} to={lsitem.listPath}>
+          <ListItem className={s.listItem} key={key} component={Link} to={lsitem.listPath}>
             <Typography className={classes.num}>{lsitem.listNum}</Typography>
             <Typography className={classes.title}>{lsitem.listText}</Typography>
             <Typography className={classes.about}>{lsitem.listAbout}</Typography>
@@ -205,7 +205,7 @@ function Header() {
             <div className={classes.line}></div>
             <div className={classes.line}></div>
           </div>
-          <img className={classes.logo} src={logo}></img>
+          <img className={classes.logo} src={logo} alt='logo'></img>
           <SideBar anchor='top' open={state.right} onClick={toggleSlider('right', false)}>
             <IconButton className={classes.closeIcon} onClick={toggleSlider('right', false)}>
             </IconButton>

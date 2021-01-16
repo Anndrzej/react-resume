@@ -1,0 +1,93 @@
+
+.modal {
+    width: 300px;
+    height: 200px;
+    background-color: #fff;
+    position: absolute;
+    right: -7.6rem;
+    bottom: 6.5rem;
+    z-index: 1000;
+    padding: 1rem;
+    transition: all .3s;
+    opacity: 0;
+    animation-name: animate;
+    animation-duration: .6s;
+    border-radius: 8px;
+
+
+}
+.modal::after {
+    content: '';
+    position: absolute;
+    top: 99%;
+    left: 0;
+    border: 150px solid transparent;
+    border-top: 50px solid #fff;
+    border-radius: 5px;
+
+}
+.title {
+    font-weight: bold !important;
+    font-size: 1.2rem !important;
+}
+
+@keyframes animate {
+    from {
+        transform: translateY(5%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
+
+
+
+@media only screen and (max-width: 959px) {
+    .modal {
+        position: absolute;
+        top: 8%;
+        right: -6rem;
+        width: 250px;
+        height: 180px;
+
+    }
+
+    .modal::after {
+        content: '';
+        position: absolute;
+        top: 98%;
+        left: 0;
+        border: 125px solid transparent;
+        border-top: 50px solid #fff;
+        border-radius: 5px;
+    }
+    .text { 
+        font-size: .9rem !important;
+    }
+}
+
+@media only screen and (max-width: 571px) { 
+    .modal {
+        position: absolute;
+        top: 25%;
+        right: -6rem;
+        width: 250px;
+        height: 180px;
+
+    }
+}
+
+@media only screen and (max-width: 470px) { 
+    .modal {
+        position: absolute;
+        top: 35%;
+        right: -6rem;
+        width: 250px;
+        height: 180px;
+
+    }
+}
+
