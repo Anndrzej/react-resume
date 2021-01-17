@@ -3,9 +3,9 @@ import { Box, Typography, Button } from '@material-ui/core';
 import css from './heroes.module.css'
 
 
-const Heroes = (props) => {
+const Heroes = () => {
     return (
-        <Box style={props.style} className={css.modal}>
+        <Box  className={css.modal}>
             <Typography className={css.title}>Fun fact</Typography>
             <Typography className={css.text}>
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut maxime pariatur quaerat magni a veniam nisi reiciendis magnam vitae vel.

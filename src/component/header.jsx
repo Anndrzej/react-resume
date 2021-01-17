@@ -1,18 +1,12 @@
 import React, { useState } from 'react';
-import { AppBar, Toolbar, ListItem, IconButton, List, Typography, Box, Grid } from '@material-ui/core';
+import { AppBar, Toolbar, Box } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core';
 import SideBar from '@material-ui/core/Drawer';
-import { Link } from 'react-router-dom';
 import logo from '../img/my-logo.png';
-import s from './header.module.css'
+import Navbar from './navbar/navbar';
 
 
 const useStyle = makeStyles(theme => ({
-  menuSliderContainer: {
-    width: '100vw',
-    height: '100vh',
-    margin: '0 auto',
-  },
   burger: {
     cursor: 'pointer',
     width: '20px',
@@ -31,19 +25,7 @@ const useStyle = makeStyles(theme => ({
     cursor: 'pointer',
     transition: '.2s linear',
   },
-  closeIcon: {
-    color: "#fff",
-    position: 'absolute',
-    top: '0%',
-    left: '0%',
-    transform: 'translate(50%, 17%)',
-    [theme.breakpoints.down('sm')]: {
-      transform: 'translate(20%, 17%)'
-    },
-    [theme.breakpoints.down('xs')]: {
-      transform: 'translate(5%, 17%)'
-    }
-  },
+
   logo: { 
     width: '40px',
     height: '40px', 
@@ -90,31 +72,7 @@ const useStyle = makeStyles(theme => ({
   //     width: '100%',
   //   }
   // },
-  title: {
-    fontSize: '2rem',
-    fontWeight: '100',
-    [theme.breakpoints.down('sm')]: {
-      fontSize: '1.3rem',
-      padding: '0',
-    },
-  },
-  num: {
-    fontSize: '4rem',
-    fontWeight: 'bold',
 
-    marginTop: '5rem',
-    [theme.breakpoints.down('xs')]: {
-      fontSize: '2rem',
-    },
-
-  },
-  about: {
-    position: 'absolute',
-    bottom: '5%',
-
-    color: 'black',
-    fontSize: '.7rem',
-  },
   '@global': {
     '.MuiAppBar-positionFixed': {
       position: 'unset'
@@ -127,49 +85,6 @@ const useStyle = makeStyles(theme => ({
 }));
 
 
-const menuItems = [
-  {
-    id: 1,
-    listText: 'Home',
-    listName: 'Home Page',
-    listPath: '/',
-    listNum: '1',
-    listAbout: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut suscipit illum asperiores eveniet, autem inventore itaque vitae aliquid, animi ut fuga ipsa impedit iusto quae alias eum corporis iste quisquam.'
-  },
-  {
-    id: 2,
-    listText: 'Resume',
-    listName: 'Resume Page',
-    listPath: '/resume',
-    listNum: '2',
-    listAbout: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut suscipit illum asperiores eveniet, autem inventore itaque vitae aliquid, animi ut fuga ipsa impedit iusto quae alias eum corporis iste quisquam.'
-  },
-  {
-    id: 3,
-    listText: 'Skills',
-    listName: 'Skills Page',
-    listPath: '/skills',
-    listNum: '3',
-    listAbout: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut suscipit illum asperiores eveniet, autem inventore itaque vitae aliquid, animi ut fuga ipsa impedit iusto quae alias eum corporis iste quisquam.'
-  },
-  {
-    id: 4,
-    listText: 'Contacts',
-    listName: 'Contacts Page',
-    listPath: '/contacts',
-    listNum: '4',
-    listAbout: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut suscipit illum asperiores eveniet, autem inventore itaque vitae aliquid, animi ut fuga ipsa impedit iusto quae alias eum corporis iste quisquam.'
-  },
-  {
-    id: 5,
-    listText: 'About',
-    listName: 'About Page',
-    listPath: '/about',
-    listNum: '5',
-    listAbout: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut suscipit illum asperiores eveniet, autem inventore itaque vitae aliquid, animi ut fuga ipsa impedit iusto quae alias eum corporis iste quisquam.'
-  }
-
-]
 
 function Header() {
   const [state, setState] = useState({
@@ -182,34 +97,18 @@ function Header() {
 
   const classes = useStyle();
 
-  const sideList = () => (
-    <Grid item xs={9} sm={10} className={classes.menuSliderContainer} component="div">
-      <List style={{ padding: '0' }}>
-        {menuItems.map((lsitem, key) => (
-          <ListItem className={s.listItem} key={key} component={Link} to={lsitem.listPath}>
-            <Typography className={classes.num}>{lsitem.listNum}</Typography>
-            <Typography className={classes.title}>{lsitem.listText}</Typography>
-            <Typography className={classes.about}>{lsitem.listAbout}</Typography>
-          </ListItem>
-        ))}
-      </List>
-    </Grid>
-  )
-
   return (
     <Box component='nav'>
       <AppBar style={{ background: '#222' }}>
         <Toolbar>
-          <div className={classes.burger} onClick={toggleSlider('right', true)}>
+          <div className={classes.burger} onClick={() => setState(!state)}>
             <div className={classes.line}></div>
             <div className={classes.line}></div>
             <div className={classes.line}></div>
           </div>
           <img className={classes.logo} src={logo} alt='logo'></img>
-          <SideBar anchor='top' open={state.right} onClick={toggleSlider('right', false)}>
-            <IconButton className={classes.closeIcon} onClick={toggleSlider('right', false)}>
-            </IconButton>
-            {sideList('right')}
+          <SideBar anchor='top' open={state} onClick={() => setState(false)}>
+            <Navbar />
           </SideBar>
         </Toolbar>
       </AppBar>

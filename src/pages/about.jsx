@@ -130,11 +130,10 @@ function About() {
 
   const [state, setState] = useState(false);
 
-  const testStyle = { 
-    opacity: '1',
-    
-  }
+
+
   const classes = useStyle();
+
   return (
     <Box component='div'>
       <Container className={classes.wrapper}>
@@ -150,7 +149,7 @@ function About() {
             Mainly I want to focus on learning JavaScript. Also, I put a lot of work to write a clear and semantically correct code.
         </Typography>
           <Button href="../../CV_Andrzej_Slobodianyk.pdf" download="resume" className={classes.btn}>Download my resume</Button>
-          {state && <Heroes style={state ? testStyle : null}/>}
+          {state && <Heroes />}
             <Interesting  onClick={() => setState(state => !state)} className={classes.int} />
         </Grid>
         <Grid className={classes.dots} component='img' src={dots} item xs={8} sm={5} md={3} />
