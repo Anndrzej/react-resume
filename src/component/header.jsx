@@ -4,75 +4,10 @@ import { makeStyles } from '@material-ui/core';
 import SideBar from '@material-ui/core/Drawer';
 import logo from '../img/my-logo.png';
 import Navbar from './navbar/navbar';
-
+import css from './header.module.css'
 
 const useStyle = makeStyles(theme => ({
-  burger: {
-    cursor: 'pointer',
-    width: '20px',
-    height: 'auto',
-    zIndex: '1500',
-
-    '&:hover div:nth-child(2)': {
-      width: '10px'
-    },
-  },
-  line: {
-    width: '20px',
-    height: '2px',
-    backgroundColor: '#fff',
-    marginTop: '.2rem',
-    cursor: 'pointer',
-    transition: '.2s linear',
-  },
-
-  logo: { 
-    width: '40px',
-    height: '40px', 
-    position: 'absolute',
-    zIndex: '1500',
-    right: '1rem'
-  },
-  // listItem: {
-  //   color: '#fff',
-  //   padding: '1rem',
-  //   margin: '0',
-  //   height: '100vh',
-  //   width: '20%',
-  //   display: 'inline-flex',
-  //   flexDirection: 'column',
-  //   alignItems: 'start',
-
-  //   backgroundColor: '#000',
-  //   '&:after': {
-  //     content: '""',
-  //     position: 'absolute',
-  //     top: '0',
-  //     left: '0',
-  //     right: '0',
-  //     bottom: '0',
-  //     borderLeft: '1px solid #fff',
-  //     borderRight: '1px solid #fff',
-  //   },
-
-  //   '&:hover': {
-  //     color: '#000',
-  //     backgroundColor: '#fff',
-  //     transition: '.5s linear',
-  //   },
-  //   [theme.breakpoints.down('sm')]: {
-  //     width: '50%',
-  //     height: '50vh',
-  //     borderBottom: '1px solid #fff',
-  //     '&:last-child': {
-  //       width: '100%',
-  //     }
-  //   },
-  //   [theme.breakpoints.down('xs')]: {
-  //     width: '100%',
-  //   }
-  // },
-
+  
   '@global': {
     '.MuiAppBar-positionFixed': {
       position: 'unset'
@@ -87,26 +22,36 @@ const useStyle = makeStyles(theme => ({
 
 
 function Header() {
-  const [state, setState] = useState({
-    right: false        // hidden from the right side by default
-  })
+  const [state, setState] = useState(false)
 
-  const toggleSlider = (slider, open) => () => {
-    setState({ ...state, [slider]: open });
-  };
+  const core = useStyle()
 
-  const classes = useStyle();
+  const close = { 
+      first: {
+
+          transform: 'rotate(45deg)',
+          marginTop: '-0.4rem',
+      },
+      disapear: { 
+        opacity: 0
+      },
+      second: { 
+        transform: 'rotate(-45deg)',
+        marginTop: '-0.4rem',
+      }
+      
+  }
 
   return (
     <Box component='nav'>
       <AppBar style={{ background: '#222' }}>
         <Toolbar>
-          <div className={classes.burger} onClick={() => setState(!state)}>
-            <div className={classes.line}></div>
-            <div className={classes.line}></div>
-            <div className={classes.line}></div>
+          <div className={css.burger}  onClick={() => setState(!state)}>
+            <div style={state ? close.first : null} className={css.line}></div>
+            <div style={state ? close.disapear : null}  className={css.line}></div>
+            <div style={state ? close.second : null}  className={css.line}></div>
           </div>
-          <img className={classes.logo} src={logo} alt='logo'></img>
+          <img className={css.logo} src={logo} alt='logo'></img>
           <SideBar anchor='top' open={state} onClick={() => setState(false)}>
             <Navbar />
           </SideBar>

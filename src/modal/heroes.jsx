@@ -3,12 +3,12 @@ import { Box, Typography, Button } from '@material-ui/core';
 import css from './heroes.module.css'
 
 
-const Heroes = () => {
+const Heroes = (props) => {
     return (
-        <Box  className={css.modal}>
+        <Box style={props}  className={css.modal}>
             <Typography className={css.title}>Fun fact</Typography>
             <Typography className={css.text}>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut maxime pariatur quaerat magni a veniam nisi reiciendis magnam vitae vel.
+               At my free time i'm playing computer games. One of my favourite calls Heroes of Might and Magic 3. Check out my custom resume😄
           </Typography>
             <Button href="../../hota_resume.jpg" download="heroes_resume" className={css.btn}>Download</Button>
         </Box>
