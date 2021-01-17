@@ -111,7 +111,7 @@ function Home() {
         }} />
       <div className={css.wrp}>
         <p className={css.text}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, libero nulla! Molestiae quae culpa perspiciatis vitae, libero quos nisi aut. Necessitatibus eaque omnis dolores! Asperiores laboriosam rerum sit quae nam.</p>
-        <Button className={css.btn}>Download my resume</Button>
+        <Button href="../../CV_Andrzej_Slobodianyk.pdf" download="resume" className={css.btn}>Download my resume</Button>
         <div className={css.items}>
           <a rel="noreferrer" className={css.item} href="https://github.com/Anndersonn" target="_blank"><GitHubIcon /></a>
           <a rel="noreferrer" className={css.item} href="https://www.linkedin.com/in/andrzej-slobodianyk-746a96177/" target="_blank"><LinkedIn /></a>

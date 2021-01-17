@@ -149,7 +149,7 @@ function About() {
           <Typography component='article' className={classes.aboutText}>
             Mainly I want to focus on learning JavaScript. Also, I put a lot of work to write a clear and semantically correct code.
         </Typography>
-          <Button className={classes.btn}>Download my resume</Button>
+          <Button href="../../CV_Andrzej_Slobodianyk.pdf" download="resume" className={classes.btn}>Download my resume</Button>
           {state && <Heroes style={state ? testStyle : null}/>}
             <Interesting  onClick={() => setState(state => !state)} className={classes.int} />
         </Grid>

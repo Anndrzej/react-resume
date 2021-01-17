@@ -10,7 +10,7 @@ const Heroes = (props) => {
             <Typography className={css.text}>
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut maxime pariatur quaerat magni a veniam nisi reiciendis magnam vitae vel.
           </Typography>
-            <Button className={css.btn}>Download</Button>
+            <Button href="../../hota_resume.jpg" download="heroes_resume" className={css.btn}>Download</Button>
         </Box>
     );
 };
