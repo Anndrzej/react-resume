@@ -46,7 +46,7 @@ const menuItems = [
     listName: 'Home Page',
     listPath: '/',
     listNum: '1',
-    listAbout: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut suscipit illum asperiores eveniet, autem inventore itaque vitae aliquid, animi ut fuga ipsa impedit iusto quae alias eum corporis iste quisquam.'
+    listAbout: 'Greetings!'
   },
   {
     id: 2,
@@ -54,7 +54,7 @@ const menuItems = [
     listName: 'Resume Page',
     listPath: '/resume',
     listNum: '2',
-    listAbout: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut suscipit illum asperiores eveniet, autem inventore itaque vitae aliquid, animi ut fuga ipsa impedit iusto quae alias eum corporis iste quisquam.'
+    listAbout: 'This page about my working career.'
   },
   {
     id: 3,
@@ -62,7 +62,7 @@ const menuItems = [
     listName: 'Skills Page',
     listPath: '/skills',
     listNum: '3',
-    listAbout: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut suscipit illum asperiores eveniet, autem inventore itaque vitae aliquid, animi ut fuga ipsa impedit iusto quae alias eum corporis iste quisquam.'
+    listAbout: 'This page about the bunch of technologies which im currently working with or i wanna learn.'
   },
   {
     id: 4,
@@ -70,7 +70,7 @@ const menuItems = [
     listName: 'Contacts Page',
     listPath: '/contacts',
     listNum: '4',
-    listAbout: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut suscipit illum asperiores eveniet, autem inventore itaque vitae aliquid, animi ut fuga ipsa impedit iusto quae alias eum corporis iste quisquam.'
+    listAbout: 'On this page u can contact with me and ask me any question.'
   },
   {
     id: 5,
@@ -78,7 +78,7 @@ const menuItems = [
     listName: 'About Page',
     listPath: '/about',
     listNum: '5',
-    listAbout: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut suscipit illum asperiores eveniet, autem inventore itaque vitae aliquid, animi ut fuga ipsa impedit iusto quae alias eum corporis iste quisquam.'
+    listAbout: 'On this page u will found some general information about me.'
   }
 
 ]

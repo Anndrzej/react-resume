@@ -5,7 +5,6 @@ import { gsap } from 'gsap';
 import { useEffect, useState } from 'react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import css from './resume.module.css';
-import Footer from '../component/footer';
 
 
 gsap.registerPlugin(ScrollTrigger);
@@ -20,7 +19,7 @@ const useStyles = makeStyles(theme => ({
         width: '100%'
     },
     firstPage: {
-        height: '100vh'
+        height: '100vh',
     },
     title: {
         textAlign: 'center',
@@ -112,14 +111,14 @@ function Resume() {
 
     const [sections] = useState([
         {
-            proffesion: 'web design',
-            company: 'company name where worked',
+            proffesion: 'Accountant Assistant',
+            company: 'Gemix Legal Advisors',
             text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae distinctio, nisi illo recusandae debitis perspiciatis sapiente adipisci eligendi nostrum dolorem provident veniam quia doloremque possimus. Quam rerum labore voluptas dolorem?Incidunt sequi nulla repudiandae qui voluptatibus, dicta nemo rem quae delectus eius rerum. Laudantium voluptatibus perferendis praesentium similique, est libero necessitatibus corporis ea, rem tenetur ipsa cum provident! Eaque, culpa.',
             year: '2017'
         },
         {
-            proffesion: 'web design',
-            company: 'company name where worked',
+            proffesion: 'Accountant',
+            company: 'Tax office Milton',
             text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae distinctio, nisi illo recusandae debitis perspiciatis sapiente adipisci eligendi nostrum dolorem provident veniam quia doloremque possimus. Quam rerum labore voluptas dolorem?Incidunt sequi nulla repudiandae qui voluptatibus, dicta nemo rem quae delectus eius rerum. Laudantium voluptatibus perferendis praesentium similique, est libero necessitatibus corporis ea, rem tenetur ipsa cum provident! Eaque, culpa.',
             year: '2018'
         },
@@ -132,7 +131,7 @@ function Resume() {
     ])
 
     return (
-            <Box style={{ position: 'absolute' }}>
+            <Box style={{ position: 'absolute', }}>
                 <Box className={classes.firstPage}>
                     <Typography className={classes.title}> Working Experience</Typography>
                     <Box component='div' className={css.middle}>
@@ -150,7 +149,6 @@ function Resume() {
                     </Grid>
                 ))
                 }
-                <Footer />
             </Box>
     )
 }

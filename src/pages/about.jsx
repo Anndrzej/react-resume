@@ -4,6 +4,7 @@ import dots from '../img/dotted-shape.png';
 import Interesting from '@material-ui/icons/EmojiObjects';
 import React, { useState } from 'react';
 import Heroes from '../modal/heroes';
+import Me from '../img/photo.jpg'
 
 const useStyle = makeStyles(theme => ({
   wrapper: {
@@ -21,7 +22,8 @@ const useStyle = makeStyles(theme => ({
   },
   textWrapper: {
     position: 'absolute',
-    width: '80%',
+    display: 'flex',
+    width: '50%',
     top: '60%',
     left: '50%',
     right: '50%',
@@ -30,19 +32,25 @@ const useStyle = makeStyles(theme => ({
     margin: '0 auto',
     backgroundColor: '#26262a',
     boxShadow: '0px 0px 20px 3px rgba(0,0,0,0.36)',
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('md')]: {
+      width: '90%',
       top: '55%',
-      left: '30%',
+      left: '28%',
       margin: '0 auto',
       zIndex: '1000',
       position: 'absolute',
-      transform: 'translate(-25%, -50%)'
-    }
+      transform: 'translate(-25%, -50%)',
+
+    },
+    [theme.breakpoints.down('xs')]: {
+      flexDirection: 'column',
+      alignItems: 'center',
+      top: '70%',
+    },
   },
   aboutText: {
-    fontSize: '1.3rem',
+    fontSize: '1rem',
     color: 'white',
-    padding: '1rem 2rem 1rem 2rem',
     '&:nth-of-type(1n)': {
       paddingTop: '2rem'
     },
@@ -54,8 +62,9 @@ const useStyle = makeStyles(theme => ({
     },
     [theme.breakpoints.down('sm')]: {
       fontSize: '0.7rem',
-      padding: '0rem 2rem 0rem 2rem'
-    }
+      padding: '0rem 1rem 0rem 1rem'
+    },
+    
   },
   btn: {
     width: '15rem',
@@ -71,9 +80,6 @@ const useStyle = makeStyles(theme => ({
 
     transition: 'all .3s',
     position: 'relative',
-    left: '50%',
-    right: '50%',
-    transform: 'translate(-50%)',
     '&:after': {
       content: '""',
       position: 'absolute',
@@ -104,12 +110,9 @@ const useStyle = makeStyles(theme => ({
     },
   },
   int: {
-    position: 'absolute',
     fill: 'yellow',
     zIndex: '1500',
     cursor: 'pointer',
-    right: '1rem',
-    bottom: '1rem',
 
     transition: '.2s linear',
     '&:hover': {
@@ -123,6 +126,30 @@ const useStyle = makeStyles(theme => ({
       marginTop: '5rem',
     }
   },
+  about: { 
+    padding: '1rem 2rem 1rem 2rem',
+    [theme.breakpoints.down('sm')]: {
+      padding: '0'
+    },
+  },
+
+  user: { 
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginLeft: 'auto',
+    padding: '2rem 2rem 1rem 2rem',
+    [theme.breakpoints.down('md')]: {
+      margin: '0 auto'
+    }
+  },
+  me: { 
+    width: '150px',
+    height: '150px',
+    borderRadius: '50%',
+    marginBottom: '2rem'
+  },
 
 }));
 
@@ -130,7 +157,7 @@ function About() {
 
   const [state, setState] = useState(false);
 
-  const modal = { 
+  const modal = {
     opacity: '1'
   }
 
@@ -142,18 +169,24 @@ function About() {
         <Grid item xs={12}>
           <Typography className={classes.title}>About</Typography>
         </Grid>
-        <Grid className={classes.textWrapper}>
-          <Typography component='article' className={classes.aboutText}>My name is <span style={{ color: '#f96c77' }}>Andrzej Slobodianyk</span> and I’m a Junior Front-End Developer. I have studied Accounting and Finanse at the University of Banking in Wrocław and now I have successfully transferred my passion to programming languages.</Typography>
-          <Typography component='article' className={classes.aboutText}>
-            Now I wish to fully devote myself to a Front-End Developer job. My main professional goal is to find a job that will give me an opportunity to deepen and improve previously acquired programming skills, engage in interesting and creative projects and raise my Front-End development qualifications.
+        <Box className={classes.textWrapper}>
+          <Grid item md={12} xs={12} className={classes.about}>
+            <Typography component='p' className={classes.aboutText}>My name is <span style={{ color: '#f96c77' }}>Andrzej Slobodianyk</span> and I’m a Junior Front-End Developer. I have studied Accounting and Finanse at the University of Banking in Wrocław and now I have successfully transferred my passion to programming languages.</Typography>
+            <Typography component='p' className={classes.aboutText}>
+              Now I wish to fully devote myself to a Front-End Developer job. My main professional goal is to find a job that will give me an opportunity to deepen and improve previously acquired programming skills, engage in interesting and creative projects and raise my Front-End development qualifications.
         </Typography>
-          <Typography component='article' className={classes.aboutText}>
-            Mainly I want to focus on learning JavaScript. Also, I put a lot of work to write a clear and semantically correct code.
+            <Typography component='p' className={classes.aboutText}>
+              Mainly I want to focus on learning JavaScript. Also, I put a lot of work to write a clear and semantically correct code.
         </Typography>
-          <Button href="../../CV_Andrzej_Slobodianyk.pdf" download="resume" className={classes.btn}>Download my resume</Button>
-          {state && <Heroes style={state ? modal.opacity : null}/>}
-            <Interesting  onClick={() => setState(state => !state)} className={classes.int} />
-        </Grid>
+          </Grid>
+          <Grid item md={5} xs={12} className={classes.user}>
+            <img className={classes.me} src={Me} alt="me"/>
+            <Typography style={{ color: '#f96c77' }}>Junior Front-End developer</Typography>
+            <Button href="../../CV_Andrzej_Slobodianyk.pdf" download="resume" className={classes.btn}>Download my resume</Button>
+            {state && <Heroes style={state ? modal.opacity : null} />}
+            <Interesting onClick={() => setState(state => !state)} className={classes.int} />
+          </Grid>
+        </Box>
         <Grid className={classes.dots} component='img' src={dots} item xs={8} sm={5} md={3} />
       </Container>
     </Box>
