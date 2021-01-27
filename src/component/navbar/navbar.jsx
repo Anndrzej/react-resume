@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, List, ListItem, Typography, Box } from '@material-ui/core';
+import { Grid, List, ListItem, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
 import s from '.././header.module.css'
@@ -50,7 +50,7 @@ const menuItems = [
   },
   {
     id: 2,
-    listText: 'Resume',
+    listText: 'Experience',
     listName: 'Resume Page',
     listPath: '/resume',
     listNum: '2',

@@ -26,7 +26,9 @@ const useStyles = makeStyles(theme => ({
         marginTop: '5rem',
         textTransform: 'uppercase',
         fontWeight: 'bold',
-        fontSize: '3rem'
+        fontSize: '8rem',
+        margin: '0',
+        color: '#2b2c2f',
     },
     textWrapper: {
         marginRight: 'auto',
