@@ -13,6 +13,13 @@ const useStyles = makeStyles(theme => ({
     box: { 
         display: 'block',
         flexDirection: 'inherit',
+<<<<<<< HEAD
+=======
+        // [theme.breakpoints.down('md')]: {
+        //     display: 'flex',
+        //     flexDirection: 'column-reverse'
+        // }
+>>>>>>> 8267025d5631f6ba91b6799c059699480d03c71c
     },
     btnContent: {
         display: 'flex',
