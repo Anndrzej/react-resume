@@ -1,24 +1,22 @@
 import { Box, Grid, Typography, Container, Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import dots from '../img/dotted-shape.png';
 import Interesting from '@material-ui/icons/EmojiObjects';
 import React, { useState } from 'react';
-import Heroes from '../modal/heroes';
-import Me from '../img/photo.jpg'
+import Heroes from '../../modal/heroes';
 
 const useStyle = makeStyles(theme => ({
   wrapper: {
     margin: '0 auto',
-
   },
   title: {
+    marginTop: '2rem',
     color: '#2b2c2f',
     fontSize: '8rem',
     fontWeight: 'bold',
     textTransform: 'capitalize',
     [theme.breakpoints.down('xs')]: {
       fontSize: '5rem',
-    }
+    },
   },
   textWrapper: {
     position: 'absolute',
@@ -40,7 +38,6 @@ const useStyle = makeStyles(theme => ({
       zIndex: '1000',
       position: 'absolute',
       transform: 'translate(-25%, -50%)',
-
     },
     [theme.breakpoints.down('xs')]: {
       flexDirection: 'column',
@@ -52,19 +49,18 @@ const useStyle = makeStyles(theme => ({
     fontSize: '1rem',
     color: 'white',
     '&:nth-of-type(1n)': {
-      paddingTop: '2rem'
+      paddingTop: '2rem',
     },
     '&:nth-of-type(3n)': {
-      paddingBottom: '2rem'
+      paddingBottom: '2rem',
     },
     [theme.breakpoints.down('md')]: {
-      fontSize: '1rem'
+      fontSize: '1rem',
     },
     [theme.breakpoints.down('sm')]: {
       fontSize: '0.7rem',
-      padding: '0rem 1rem 0rem 1rem'
+      padding: '0rem 1rem 0rem 1rem',
     },
-    
   },
   btn: {
     width: '15rem',
@@ -106,7 +102,7 @@ const useStyle = makeStyles(theme => ({
       '&:before': {
         height: '100%',
         borderRadius: '2px',
-      }
+      },
     },
   },
   int: {
@@ -116,24 +112,24 @@ const useStyle = makeStyles(theme => ({
 
     transition: '.2s linear',
     '&:hover': {
-      transform: 'translateY(-30%)'
-    }
+      transform: 'translateY(-30%)',
+    },
   },
   dots: {
     marginTop: '3rem',
     float: 'right',
     [theme.breakpoints.down('sm')]: {
       marginTop: '5rem',
-    }
+    },
   },
-  about: { 
+  about: {
     padding: '1rem 2rem 1rem 2rem',
     [theme.breakpoints.down('sm')]: {
-      padding: '0'
+      padding: '0',
     },
   },
 
-  user: { 
+  user: {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
@@ -141,56 +137,84 @@ const useStyle = makeStyles(theme => ({
     marginLeft: 'auto',
     padding: '2rem 2rem 1rem 2rem',
     [theme.breakpoints.down('md')]: {
-      margin: '0 auto'
-    }
+      margin: '0 auto',
+    },
   },
-  me: { 
+  me: {
     width: '150px',
     height: '150px',
     borderRadius: '50%',
-    marginBottom: '2rem'
+    marginBottom: '2rem',
   },
-
 }));
 
 function About() {
-
   const [state, setState] = useState(false);
 
   const modal = {
-    opacity: '1'
-  }
+    opacity: '1',
+  };
 
   const classes = useStyle();
 
   return (
-    <Box component='div'>
+    <Box component="div">
       <Container className={classes.wrapper}>
         <Grid item xs={12}>
           <Typography className={classes.title}>About</Typography>
         </Grid>
         <Box className={classes.textWrapper}>
           <Grid item md={12} xs={12} className={classes.about}>
-            <Typography component='p' className={classes.aboutText}>My name is <span style={{ color: '#f96c77' }}>Andrzej Slobodianyk</span> and I’m a Junior Front-End Developer. I have studied Accounting and Finanse at the University of Banking in Wrocław and now I have successfully transferred my passion to programming languages.</Typography>
-            <Typography component='p' className={classes.aboutText}>
-              Now I wish to fully devote myself to a Front-End Developer job. My main professional goal is to find a job that will give me an opportunity to deepen and improve previously acquired programming skills, engage in interesting and creative projects and raise my Front-End development qualifications.
-        </Typography>
-            <Typography component='p' className={classes.aboutText}>
-              Mainly I want to focus on learning JavaScript. Also, I put a lot of work to write a clear and semantically correct code.
-        </Typography>
+            <Typography component="p" className={classes.aboutText}>
+              My name is{' '}
+              <span style={{ color: '#f96c77' }}>Andrzej Slobodianyk</span> and I’m a
+              Junior Front-End Developer. I have studied Accounting and Finanse at
+              the University of Banking in Wrocław and now I have successfully
+              transferred my passion to programming languages.
+            </Typography>
+            <Typography component="p" className={classes.aboutText}>
+              Now I wish to fully devote myself to a Front-End Developer job. My main
+              professional goal is to find a job that will give me an opportunity to
+              deepen and improve previously acquired programming skills, engage in
+              interesting and creative projects and raise my Front-End development
+              qualifications.
+            </Typography>
+            <Typography component="p" className={classes.aboutText}>
+              Mainly I want to focus on learning JavaScript. Also, I put a lot of
+              work to write a clear and semantically correct code.
+            </Typography>
           </Grid>
           <Grid item md={5} xs={12} className={classes.user}>
-            <img className={classes.me} src={Me} alt="me"/>
-            <Typography style={{ color: '#f96c77' }}>Junior Front-End developer</Typography>
-            <Button href="../../CV_Andrzej_Slobodianyk.pdf" download="resume" className={classes.btn}>Download my resume</Button>
+            <img className={classes.me} src="/img/avatar.jpg" alt="me" />
+            <Typography style={{ color: '#f96c77' }}>
+              Junior Front-End developer
+            </Typography>
+            <Button
+              href="/CV_Andrzej_Slobodianyk.pdf"
+              download="resume"
+              className={classes.btn}
+            >
+              Download my resume
+            </Button>
             {state && <Heroes style={state ? modal.opacity : null} />}
-            <Interesting onClick={() => setState(state => !state)} className={classes.int} />
+            <Interesting
+              onClick={() => setState(state => !state)}
+              className={classes.int}
+            />
           </Grid>
         </Box>
-        <Grid className={classes.dots} component='img' src={dots} item xs={8} sm={5} md={3} />
+        <Grid
+          className={classes.dots}
+          component="img"
+          src="/img/dotted-shape.png"
+          item
+          xs={8}
+          sm={5}
+          md={3}
+        />
       </Container>
     </Box>
-  )
+  );
 }
 
-export default About
+export default About;

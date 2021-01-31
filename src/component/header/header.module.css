@@ -1,22 +1,23 @@
 /* LOGO */
 
-.logo { 
+.logo {
   width: 40px;
   height: 40px;
   position: absolute;
   z-index: 1500;
   right: 1rem;
 }
+
 /* BURGER */
 
 .burger {
   cursor: pointer;
   width: 20px;
   height: auto;
-  z-index: 1500;
+  z-index: 1500 ;
 }
 
-.burger:hover div:nth-child(2) { 
+.burger:hover div:nth-child(2) {
   width: 10px;
 }
 
@@ -105,9 +106,10 @@
     width: 50% !important;
     height: 50vh !important;
     border-bottom: 1px solid #fff !important;
-    
+
   }
-  .logo { 
+
+  .logo {
     width: 30px;
     height: 30px;
   }
@@ -119,12 +121,12 @@
 
 @media only screen and (max-width: 600px) {
   .listItem {
-    width: 100% !important; 
+    width: 100% !important;
   }
 }
 
 @media only screen and (max-width: 370px) {
-  .logo { 
+  .logo {
     right: .5rem;
     width: 25px;
     height: 25px

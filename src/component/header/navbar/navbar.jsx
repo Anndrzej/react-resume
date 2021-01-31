@@ -2,7 +2,7 @@ import React from 'react';
 import { Grid, List, ListItem, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
-import s from '.././header.module.css'
+import s from '.././header.module.css';
 
 const useStyle = makeStyles(theme => ({
 
@@ -27,7 +27,6 @@ const useStyle = makeStyles(theme => ({
     [theme.breakpoints.down('xs')]: {
       fontSize: '2rem',
     },
-
   },
   about: {
     position: 'absolute',
@@ -36,8 +35,7 @@ const useStyle = makeStyles(theme => ({
     color: 'black',
     fontSize: '.7rem',
   },
-
-}))
+}));
 
 const menuItems = [
   {
@@ -46,7 +44,7 @@ const menuItems = [
     listName: 'Home Page',
     listPath: '/',
     listNum: '1',
-    listAbout: 'Greetings!'
+    listAbout: 'Greetings!',
   },
   {
     id: 2,
@@ -54,7 +52,7 @@ const menuItems = [
     listName: 'Resume Page',
     listPath: '/resume',
     listNum: '2',
-    listAbout: 'This page about my working career.'
+    listAbout: 'This page about my working career.',
   },
   {
     id: 3,
@@ -62,7 +60,8 @@ const menuItems = [
     listName: 'Skills Page',
     listPath: '/skills',
     listNum: '3',
-    listAbout: 'This page about the bunch of technologies which im currently working with or i wanna learn.'
+    listAbout:
+      'This page about the bunch of technologies which im currently working with or i wanna learn.',
   },
   {
     id: 4,
@@ -70,7 +69,7 @@ const menuItems = [
     listName: 'Contacts Page',
     listPath: '/contacts',
     listNum: '4',
-    listAbout: 'On this page u can contact with me and ask me any question.'
+    listAbout: 'On this page u can contact with me and ask me any question.',
   },
   {
     id: 5,
@@ -78,26 +77,29 @@ const menuItems = [
     listName: 'About Page',
     listPath: '/about',
     listNum: '5',
-    listAbout: 'On this page u will found some general information about me.'
-  }
-
-]
+    listAbout: 'On this page u will found some general information about me.',
+  },
+];
 
 const Navbar = () => {
-
-  const css = useStyle()
+  const css = useStyle();
   return (
-      <Grid item xs={9} sm={10} className={css.menuSliderContainer} component="div">
-        <List style={{ padding: '0' }}>
-          {menuItems.map((lsitem, key) => (
-            <ListItem className={s.listItem} key={key} component={Link} to={lsitem.listPath}>
-              <Typography className={css.num}>{lsitem.listNum}</Typography>
-              <Typography className={css.title}>{lsitem.listText}</Typography>
-              <Typography className={css.about}>{lsitem.listAbout}</Typography>
-            </ListItem>
-          ))}
-        </List>
-      </Grid>
+    <Grid item xs={9} sm={10} className={css.menuSliderContainer} component="div">
+      <List style={{ padding: '0' }}>
+        {menuItems.map((lsitem, key) => (
+          <ListItem
+            className={s.listItem}
+            key={key}
+            component={Link}
+            to={lsitem.listPath}
+          >
+            <Typography className={css.num}>{lsitem.listNum}</Typography>
+            <Typography className={css.title}>{lsitem.listText}</Typography>
+            <Typography className={css.about}>{lsitem.listAbout}</Typography>
+          </ListItem>
+        ))}
+      </List>
+    </Grid>
   );
 };
 
