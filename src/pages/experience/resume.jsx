@@ -203,17 +203,17 @@ function Resume() {
     {
       work: '/',
       link: 'http://anderson.ga/ActiveBox/',
-      img: '/img/food.jpg'
+      img: '/img/activebox.jpg'
     },
     {
       work: '/',
       link: 'http://anderson.ga/rock-paper-scissors.github.io/',
-      img: '/img/food.jpg'
+      img: '/img/app1.jpg'
     },
     {
       work: '/',
       link: 'http://anderson.ga/tic-tac-toe.github.io/',
-      img: '/img/food.jpg'
+      img: '/img/app2.jpg'
     },
   ]);
 
@@ -255,7 +255,7 @@ function Resume() {
           {works.map((works, key) => (
             <Box className={classes.box} key={key}>
               <a className={classes.link} href={works.link} target="_blank" rel='noreferrer'>
-              <Box src={works.img} className={classes.img}></Box>
+              <img src={works.img} className={classes.img} alt='img'></img>
               </a>
             </Box>
           ))}
