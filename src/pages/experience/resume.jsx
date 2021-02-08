@@ -9,8 +9,6 @@ import css from './resume.module.css';
 gsap.registerPlugin(ScrollTrigger);
 
 const useStyles = makeStyles(theme => ({
-
-
   dots: {
     position: 'absolute',
     zIndex: '-1',
@@ -50,7 +48,7 @@ const useStyles = makeStyles(theme => ({
   },
   text: {
     color: '#fff',
-    textAlign: 'center',
+    textAlign: 'start',
     padding: '0.5rem',
   },
   proffesion: {
@@ -98,7 +96,7 @@ const useStyles = makeStyles(theme => ({
     width: '35rem',
     height: '15rem',
     borderRadius: '10px',
-    boxShadow: '0 0 2px rgb(237 0 0)',
+    boxShadow: '0 0 2px',
     marginBottom: '3rem',
     transition: 'all .2s linear',
 
@@ -111,7 +109,6 @@ const useStyles = makeStyles(theme => ({
     },
   },
   img: {
-    // background: 'url(/img/food.jpg)',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
@@ -122,6 +119,18 @@ const useStyles = makeStyles(theme => ({
   },
   link: {
     '&:hover': {},
+  },
+  firstPortfolio: {
+    cursor: 'pointer',
+    borderRadius: '10px',
+    boxShadow: '0 0 2px ',
+    width: '50rem',
+    margin: '3rem 0 3rem 0',
+    transition: 'all .2s linear',
+
+    '&:hover': {
+      border: '6px solid rgb(249, 108, 119)',
+    },
   },
 }));
 
@@ -174,23 +183,38 @@ function Resume() {
     {
       proffesion: 'Accountant Assistant',
       company: 'Gemix Legal Advisors',
-      text:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae distinctio, nisi illo recusandae debitis perspiciatis sapiente adipisci eligendi nostrum dolorem provident veniam quia doloremque possimus. Quam rerum labore voluptas dolorem?Incidunt sequi nulla repudiandae qui voluptatibus, dicta nemo rem quae delectus eius rerum. Laudantium voluptatibus perferendis praesentium similique, est libero necessitatibus corporis ea, rem tenetur ipsa cum provident! Eaque, culpa.',
+      text: (
+        <>
+          <li>Accounts keeping</li>
+          <li>managing tax assets</li>
+          <li>managing documents flow</li>
+          <li>
+            Verification of documents provided by the principal as for their
+            compliance formal and applicable law
+          </li>
+          <li>Preparation of cash reports</li>
+          <li>Contact with clients in Russian, Ukrainian and English languages</li>
+        </>
+      ),
       year: '2017',
     },
     {
       proffesion: 'Accountant',
       company: 'Tax office Milton',
-      text:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae distinctio, nisi illo recusandae debitis perspiciatis sapiente adipisci eligendi nostrum dolorem provident veniam quia doloremque possimus. Quam rerum labore voluptas dolorem?Incidunt sequi nulla repudiandae qui voluptatibus, dicta nemo rem quae delectus eius rerum. Laudantium voluptatibus perferendis praesentium similique, est libero necessitatibus corporis ea, rem tenetur ipsa cum provident! Eaque, culpa.',
+      text: (
+        <>
+          <li>Keeping a book of revenues and expenses</li>
+          <li>Accounts keeping</li>
+          <li>
+            Preparing the financial result after each closed month relating to the
+            activities
+          </li>
+          <li>Preparing PIT and VAT tax declarations to the tax department</li>
+          <li>Keeping VAT records</li>
+          <li>management of personnel affairs</li>
+        </>
+      ),
       year: '2018',
-    },
-    {
-      proffesion: 'web design',
-      company: 'company name where worked',
-      text:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae distinctio, nisi illo recusandae debitis perspiciatis sapiente adipisci eligendi nostrum dolorem provident veniam quia doloremque possimus. Quam rerum labore voluptas dolorem?Incidunt sequi nulla repudiandae qui voluptatibus, dicta nemo rem quae delectus eius rerum. Laudantium voluptatibus perferendis praesentium similique, est libero necessitatibus corporis ea, rem tenetur ipsa cum provident! Eaque, culpa.',
-      year: '2019',
     },
   ]);
 
@@ -198,27 +222,27 @@ function Resume() {
     {
       work: '/',
       link: 'http://anderson.ga/Food/',
-      img: '/img/food.jpg'
+      img: '/img/food.jpg',
     },
     {
       work: '/',
       link: 'http://anderson.ga/ActiveBox/',
-      img: '/img/activebox.jpg'
+      img: '/img/activebox.jpg',
     },
     {
       work: '/',
       link: 'http://anderson.ga/rock-paper-scissors.github.io/',
-      img: '/img/app1.jpg'
+      img: '/img/app1.jpg',
     },
     {
       work: '/',
       link: 'http://anderson.ga/tic-tac-toe.github.io/',
-      img: '/img/app2.jpg'
+      img: '/img/app2.jpg',
     },
   ]);
 
   return (
-    <Box style={{ position: 'absolute' }}>
+    <Box>
       <Box className={classes.firstPage}>
         <Typography className={classes.title}> Working Experience</Typography>
         <Box component="div" className={css.middle}>
@@ -246,20 +270,47 @@ function Resume() {
       <Container className={classes.info}>
         <Typography className={classes.main}>My Works</Typography>
         <Typography className={classes.dialog}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio veniam
-          dolorum omnis assumenda odit earum nostrum illo modi aut. Perspiciatis?
+          Unfortunatly, i don't have any commercial experience, but i practicing
+          every day. Below, u can look on a few projects, which i have made during my
+          studying.
         </Typography>
       </Container>
       <Container>
         <Box className={classes.wrp}>
           {works.map((works, key) => (
             <Box className={classes.box} key={key}>
-              <a className={classes.link} href={works.link} target="_blank" rel='noreferrer'>
-              <img src={works.img} className={classes.img} alt='img'></img>
+              <a
+                className={classes.link}
+                href={works.link}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img src={works.img} className={classes.img} alt="img"></img>
               </a>
             </Box>
           ))}
         </Box>
+      </Container>
+      <Container
+        style={{
+          borderTop: '1px solid #fff',
+          display: 'flex',
+          justifyContent: 'center',
+          flexDirection: 'column',
+          alignItems: 'center',
+        }}
+      >
+        <Typography className={classes.main} style={{ marginTop: '3rem' }}>
+          My previous portfolio website
+        </Typography>
+        <a
+          className={classes.firstPortfolio}
+          href="http://anderson.ga/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <img className={classes.img} src="/img/first_portfolio.png" alt="" />
+        </a>
       </Container>
     </Box>
   );
