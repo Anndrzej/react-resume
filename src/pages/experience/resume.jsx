@@ -100,7 +100,7 @@ const useStyles = makeStyles(theme => ({
     boxShadow: '0 0 2px',
     marginBottom: '3rem',
     transition: 'all .2s linear',
-    cursor: 'pointer',  
+    cursor: 'pointer',
     '&:hover': {
       border: '6px solid rgb(249, 108, 119)',
       display: 'block',
@@ -225,38 +225,32 @@ function Resume() {
       link: 'https://linkedin-clone-4a118.web.app/',
       img:
         'https://www.kinesisinc.com/wp-content/uploads/2020/04/linkedin-101-hero@2x.png',
-
     },
     {
       work: '/',
       link: 'https://clone-e2445.web.app/',
       img:
         'https://cdn.vox-cdn.com/thumbor/8fWz6qpiMYMsZhY4vrc9Vhl5yL8=/0x110:1320x770/fit-in/1200x600/cdn.vox-cdn.com/uploads/chorus_asset/file/21939811/newgmaillogo.jpg',
-
     },
     {
       work: '/',
       link: 'http://anderson.ga/Food/',
       img: '/img/food.jpg',
-
     },
     {
       work: '/',
       link: 'http://anderson.ga/ActiveBox/',
       img: '/img/activebox.jpg',
-
     },
     {
       work: '/',
       link: 'http://anderson.ga/rock-paper-scissors.github.io/',
       img: '/img/app1.jpg',
-
     },
     {
       work: '/',
       link: 'http://anderson.ga/tic-tac-toe.github.io/',
       img: '/img/app2.jpg',
-
     },
   ]);
 
@@ -297,17 +291,17 @@ function Resume() {
       <Container>
         <Box className={classes.wrp}>
           {works.map((works, key) => (
-            <Box className={classes.box} key={key}>
-
-              <a
-                className={classes.link}
-                href={works.link}
-                target="_blank"
-                rel="noreferrer"
-              >
+            <a
+              key={key}
+              className={classes.link}
+              href={works.link}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <div className={classes.box}>
                 <img src={works.img} className={classes.img} alt="img"></img>
-              </a>
-            </Box>
+              </div>
+            </a>
           ))}
         </Box>
       </Container>
