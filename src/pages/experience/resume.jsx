@@ -93,15 +93,17 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'space-between',
   },
   box: {
+    position: 'relative',
     width: '35rem',
     height: '15rem',
     borderRadius: '10px',
     boxShadow: '0 0 2px',
     marginBottom: '3rem',
     transition: 'all .2s linear',
-
+    cursor: 'pointer',  
     '&:hover': {
       border: '6px solid rgb(249, 108, 119)',
+      display: 'block',
     },
     [theme.breakpoints.down('sm')]: {
       margin: 'auto',
@@ -109,6 +111,7 @@ const useStyles = makeStyles(theme => ({
     },
   },
   img: {
+    position: 'relative',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
@@ -117,9 +120,7 @@ const useStyles = makeStyles(theme => ({
     borderRadius: '5px',
     zIndex: '-1',
   },
-  link: {
-    '&:hover': {},
-  },
+
   firstPortfolio: {
     cursor: 'pointer',
     borderRadius: '10px',
@@ -221,23 +222,41 @@ function Resume() {
   const [works] = useState([
     {
       work: '/',
+      link: 'https://linkedin-clone-4a118.web.app/',
+      img:
+        'https://www.kinesisinc.com/wp-content/uploads/2020/04/linkedin-101-hero@2x.png',
+
+    },
+    {
+      work: '/',
+      link: 'https://clone-e2445.web.app/',
+      img:
+        'https://cdn.vox-cdn.com/thumbor/8fWz6qpiMYMsZhY4vrc9Vhl5yL8=/0x110:1320x770/fit-in/1200x600/cdn.vox-cdn.com/uploads/chorus_asset/file/21939811/newgmaillogo.jpg',
+
+    },
+    {
+      work: '/',
       link: 'http://anderson.ga/Food/',
       img: '/img/food.jpg',
+
     },
     {
       work: '/',
       link: 'http://anderson.ga/ActiveBox/',
       img: '/img/activebox.jpg',
+
     },
     {
       work: '/',
       link: 'http://anderson.ga/rock-paper-scissors.github.io/',
       img: '/img/app1.jpg',
+
     },
     {
       work: '/',
       link: 'http://anderson.ga/tic-tac-toe.github.io/',
       img: '/img/app2.jpg',
+
     },
   ]);
 
@@ -279,6 +298,7 @@ function Resume() {
         <Box className={classes.wrp}>
           {works.map((works, key) => (
             <Box className={classes.box} key={key}>
+
               <a
                 className={classes.link}
                 href={works.link}
