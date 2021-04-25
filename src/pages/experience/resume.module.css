@@ -1,3 +1,27 @@
+.description {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    color: #fff;
+}
+
+.dimmer {
+    width: 100%;
+    height: 100%;
+
+}
+
+.dimmer:hover {
+    background-color: #000000a8;
+    border-radius: 4px;
+}
+
+.dimmer:hover .description {
+    display: block
+}
+
 /* // animation */
 
 .middle {

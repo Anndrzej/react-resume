@@ -14,7 +14,7 @@
   cursor: pointer;
   width: 20px;
   height: auto;
-  z-index: 1500 ;
+  z-index: 1500;
 }
 
 .burger:hover div:nth-child(2) {

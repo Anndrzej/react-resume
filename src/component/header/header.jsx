@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { AppBar, Toolbar, Box } from '@material-ui/core';
+import { AppBar, Toolbar } from '@material-ui/core';
 import SideBar from '@material-ui/core/Drawer';
 import Navbar from './navbar/navbar';
 import css from './header.module.css';
 import { makeStyles } from '@material-ui/styles';
 
 const useStyle = makeStyles(theme => ({
-  
+
   '@global': {
     '.MuiAppBar-positionFixed': {
       position: 'unset'
@@ -38,7 +38,7 @@ function Header() {
   };
 
   return (
-    <Box component="nav">
+    <div className={core} component="nav">
       <AppBar style={{ background: '#222' }}>
         <Toolbar>
           <div className={css.burger} onClick={() => setState(!state)}>
@@ -52,7 +52,7 @@ function Header() {
           </SideBar>
         </Toolbar>
       </AppBar>
-    </Box>
+    </div>
   );
 }
 

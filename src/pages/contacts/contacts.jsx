@@ -9,10 +9,6 @@ import MailIcon from '@material-ui/icons/Mail';
 
 const useStyles = makeStyles(theme => ({
   contactContainer: {
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    position: 'absolute',
     margin: '0 auto',
     display: 'flex',
     justifyContent: 'space-between',
@@ -28,7 +24,7 @@ const useStyles = makeStyles(theme => ({
       order: 3,
     },
     [theme.breakpoints.down('sm')]: {
-      marginTop: '25rem',
+      // marginTop: '25rem',
       marginBottom: '3rem',
     },
   },
@@ -39,6 +35,7 @@ const useStyles = makeStyles(theme => ({
     width: '44%',
     [theme.breakpoints.down('md')]: {
       width: '55%',
+      fontSize: '0.6rem'
     },
   },
   subtitle: {
@@ -77,7 +74,7 @@ const useStyles = makeStyles(theme => ({
     textTransform: 'capitalize',
     paddingTop: '3rem',
     [theme.breakpoints.down('sm')]: {
-      fontSize: '6rem',
+      fontSize: '5rem',
       textAlign: 'center',
     },
   },

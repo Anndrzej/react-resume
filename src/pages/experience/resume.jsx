@@ -2,19 +2,16 @@ import { React, useRef } from 'react';
 import { Typography, Box, Grid, Container } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { gsap } from 'gsap';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import css from './resume.module.css';
+import { works } from '../../helpers/pages/resume/resume'
+import { sections } from '../../helpers/pages/resume/resume'
+
 
 gsap.registerPlugin(ScrollTrigger);
 
 const useStyles = makeStyles(theme => ({
-  dots: {
-    position: 'absolute',
-    zIndex: '-1',
-
-    width: '100%',
-  },
   firstPage: {
     height: '100vh',
   },
@@ -26,6 +23,9 @@ const useStyles = makeStyles(theme => ({
     fontSize: '8rem',
     margin: '0',
     color: '#2b2c2f',
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '3rem',
+    },
   },
   textWrapper: {
     marginRight: 'auto',
@@ -77,6 +77,7 @@ const useStyles = makeStyles(theme => ({
     fontWeight: 'bold',
     fontSize: '2rem',
     color: '#fff',
+    textAlign: 'center'
   },
   dialog: {
     color: '#fff',
@@ -91,30 +92,27 @@ const useStyles = makeStyles(theme => ({
     marginBottom: '8rem',
     flexWrap: 'wrap',
     justifyContent: 'space-between',
+    [theme.breakpoints.down('sm')]: {
+      justifyContent: 'center'
+    },
   },
   box: {
     position: 'relative',
-    width: '35rem',
+    width: '30rem',
     height: '15rem',
     borderRadius: '10px',
-    boxShadow: '0 0 2px',
     marginBottom: '3rem',
     transition: 'all .2s linear',
     cursor: 'pointer',
-    '&:hover': {
-      border: '6px solid rgb(249, 108, 119)',
-      display: 'block',
-    },
     [theme.breakpoints.down('sm')]: {
       margin: 'auto',
       marginBottom: '3rem',
+      width: 'auto',
+      height: 'auto'
     },
   },
   img: {
     position: 'relative',
-    backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'center',
     width: '100%',
     height: '100%',
     borderRadius: '5px',
@@ -125,13 +123,9 @@ const useStyles = makeStyles(theme => ({
     cursor: 'pointer',
     borderRadius: '10px',
     boxShadow: '0 0 2px ',
-    width: '50rem',
+    maxWidth: '100%',
     margin: '3rem 0 3rem 0',
     transition: 'all .2s linear',
-
-    '&:hover': {
-      border: '6px solid rgb(249, 108, 119)',
-    },
   },
 }));
 
@@ -148,7 +142,7 @@ function Resume() {
   useEffect(() => {
     gsap.from(wrapperRef.current, {
       autoAlpha: 0,
-      x: 150,
+      x: 0,
       ease: 'ease-in-out',
       delay: 1,
     });
@@ -180,79 +174,7 @@ function Resume() {
 
   //END GSAP
 
-  const [sections] = useState([
-    {
-      proffesion: 'Accountant Assistant',
-      company: 'Gemix Legal Advisors',
-      text: (
-        <>
-          <li>Accounts keeping</li>
-          <li>managing tax assets</li>
-          <li>managing documents flow</li>
-          <li>
-            Verification of documents provided by the principal as for their
-            compliance formal and applicable law
-          </li>
-          <li>Preparation of cash reports</li>
-          <li>Contact with clients in Russian, Ukrainian and English languages</li>
-        </>
-      ),
-      year: '2017',
-    },
-    {
-      proffesion: 'Accountant',
-      company: 'Tax office Milton',
-      text: (
-        <>
-          <li>Keeping a book of revenues and expenses</li>
-          <li>Accounts keeping</li>
-          <li>
-            Preparing the financial result after each closed month relating to the
-            activities
-          </li>
-          <li>Preparing PIT and VAT tax declarations to the tax department</li>
-          <li>Keeping VAT records</li>
-          <li>management of personnel affairs</li>
-        </>
-      ),
-      year: '2018',
-    },
-  ]);
 
-  const [works] = useState([
-    {
-      work: '/',
-      link: 'https://linkedin-clone-4a118.web.app/',
-      img:
-        'https://www.kinesisinc.com/wp-content/uploads/2020/04/linkedin-101-hero@2x.png',
-    },
-    {
-      work: '/',
-      link: 'https://clone-e2445.web.app/',
-      img:
-        'https://cdn.vox-cdn.com/thumbor/8fWz6qpiMYMsZhY4vrc9Vhl5yL8=/0x110:1320x770/fit-in/1200x600/cdn.vox-cdn.com/uploads/chorus_asset/file/21939811/newgmaillogo.jpg',
-    },
-    {
-      work: '/',
-      link: 'http://anderson.ga/Food/',
-      img: '/img/food.jpg',
-    },
-    {
-      work: '/',
-      link: 'http://anderson.ga/ActiveBox/',
-      img: '/img/activebox.jpg',
-    },
-    {
-      work: '/',
-      link: 'http://anderson.ga/rock-paper-scissors.github.io/',
-      img: '/img/app1.jpg',
-    },
-    {
-      work: '/',
-      link: 'http://anderson.ga/tic-tac-toe.github.io/',
-      img: '/img/app2.jpg',
-    },
-  ]);
 
   return (
     <Box>
@@ -282,24 +204,21 @@ function Resume() {
       ))}
       <Container className={classes.info}>
         <Typography className={classes.main}>My Works</Typography>
-        <Typography className={classes.dialog}>
-          Unfortunatly, i don't have any commercial experience, but i practicing
-          every day. Below, u can look on a few projects, which i have made during my
-          studying.
-        </Typography>
       </Container>
       <Container>
         <Box className={classes.wrp}>
           {works.map((works, key) => (
             <a
               key={key}
-              className={classes.link}
               href={works.link}
               target="_blank"
               rel="noreferrer"
             >
               <div className={classes.box}>
-                <img src={works.img} className={classes.img} alt="img"></img>
+                <div className={css.dimmer}>
+                  <img src={works.img} className={classes.img} alt="img"></img>
+                  <p className={css.description}>{works.description}</p>
+                </div>
               </div>
             </a>
           ))}

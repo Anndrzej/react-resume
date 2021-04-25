@@ -19,30 +19,21 @@ const useStyle = makeStyles(theme => ({
     },
   },
   textWrapper: {
-    position: 'absolute',
     display: 'flex',
-    width: '50%',
-    top: '60%',
-    left: '50%',
-    right: '50%',
-    transform: 'translate(-50%, -50%)',
     zIndex: '1000',
     margin: '0 auto',
+    width: '55rem',
+    maxWidth: '100%',
     backgroundColor: '#26262a',
     boxShadow: '0px 0px 20px 3px rgba(0,0,0,0.36)',
     [theme.breakpoints.down('md')]: {
-      width: '90%',
-      top: '55%',
-      left: '28%',
       margin: '0 auto',
       zIndex: '1000',
-      position: 'absolute',
-      transform: 'translate(-25%, -50%)',
     },
     [theme.breakpoints.down('xs')]: {
       flexDirection: 'column',
       alignItems: 'center',
-      top: '70%',
+      marginBottom: '2rem'
     },
   },
   aboutText: {
@@ -116,10 +107,15 @@ const useStyle = makeStyles(theme => ({
     },
   },
   dots: {
-    marginTop: '3rem',
     float: 'right',
-    [theme.breakpoints.down('sm')]: {
+    display: 'block',
+    position: 'absolute',
+    zIndex: '-1000',
+    right: '1%',
+    top: '23%',
+    [theme.breakpoints.down('xs')]: {
       marginTop: '5rem',
+      display: 'none'
     },
   },
   about: {
