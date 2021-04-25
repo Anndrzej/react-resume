@@ -92,8 +92,14 @@ const useStyles = makeStyles(theme => ({
   },
   wrp: {
     display: 'flex',
+    flexDirection: 'column',
     justifyContent: 'space-between',
+    alignItems: 'center',
     padding: '0 3rem 0 3rem',
+    [theme.breakpoints.down('md')]: {
+      flexDirection: 'initial',
+      alignItems: 'initial',
+    },
     [theme.breakpoints.down('sm')]: {
       flexDirection: 'column',
       alignItems: 'center',
@@ -292,17 +298,6 @@ function Skills() {
     <div>
       <h1 className={css.title}>Skills</h1>
       <div className={css.box}>
-        <div className={css.btnContent}>
-          <Button className={css.btn} onClick={handleClick} style={state.blueBtn}>
-            this site
-          </Button>
-          <Button className={css.btn} onClick={handleClick2} style={state.redBtn}>
-            wanna learn
-          </Button>
-          <Button className={css.btn} onClick={handleClick3} style={state.yellowBtn}>
-            rocking at
-          </Button>
-        </div>
         <div className={css.wrp}>
           <ul className={css.list}>
             <li className={css.bluewrp}>
@@ -335,6 +330,9 @@ function Skills() {
                 GSAP
               </p>
             </li>
+            <Button className={css.btn} onClick={handleClick} style={state.blueBtn}>
+              this site
+          </Button>
           </ul>
           <ul className={css.list}>
             <li className={css.redwrp}>
@@ -361,6 +359,9 @@ function Skills() {
                 TypeScript
               </p>
             </li>
+            <Button className={css.btn} onClick={handleClick2} style={state.redBtn}>
+              wanna learn
+          </Button>
           </ul>
           <ul className={css.list}>
             <li className={css.yellowwrp}>
@@ -383,6 +384,9 @@ function Skills() {
                 React Js
               </p>
             </li>
+            <Button className={css.btn} onClick={handleClick3} style={state.yellowBtn}>
+              rocking at
+          </Button>
           </ul>
         </div>
       </div>
