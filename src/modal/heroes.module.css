@@ -3,7 +3,7 @@
     height: 200px;
     background-color: #fff;
     position: absolute;
-    top: 20%;
+    top: 40%;
     z-index: 1000;
     padding: 1rem;
     transition: all .3s;
@@ -52,7 +52,7 @@
 @media only screen and (max-width: 959px) {
     .modal {
         position: absolute;
-        top: 25%;
+        top: 34%;
         width: 250px;
         height: 180px;
 

@@ -1,41 +1,48 @@
 export const works = [
     {
         work: '/',
+        link: 'https://react-pizza-online-shop.herokuapp.com/',
+        img:
+            '/img/pizza.png',
+        description: 'React Pizza - it is an online-pizza-shop, where u can order pizza. This is my first big project, which i made using React, Redux, redux-thunk, react-router, axios, and as a backend json-server',
+    },
+    {
+        work: '/',
         link: 'https://linkedin-clone-4a118.web.app/',
         img:
             'https://www.kinesisinc.com/wp-content/uploads/2020/04/linkedin-101-hero@2x.png',
-        description: '',
+        description: 'Linkedin clone. I have made it using react and redux. As a backend i choosed a Firebase cloud storage',
     },
     {
         work: '/',
         link: 'https://clone-e2445.web.app/',
         img:
             'https://cdn.vox-cdn.com/thumbor/8fWz6qpiMYMsZhY4vrc9Vhl5yL8=/0x110:1320x770/fit-in/1200x600/cdn.vox-cdn.com/uploads/chorus_asset/file/21939811/newgmaillogo.jpg',
-        description: '',
+        description: 'A simple gmail clone, which i have made using react and redux again and as a backend it was Firebase.',
     },
     {
         work: '/',
         link: 'http://anderson.ga/Food/',
         img: '/img/food.jpg',
-        description: '',
+        description: 'Landing page with a native JavaScript, CSS and HTML',
     },
     {
         work: '/',
         link: 'http://anderson.ga/ActiveBox/',
         img: '/img/activebox.jpg',
-        description: '',
+        description: 'A super simple landing page which i have made during my courses.',
     },
     {
         work: '/',
         link: 'http://anderson.ga/rock-paper-scissors.github.io/',
         img: '/img/app1.jpg',
-        description: '',
+        description: 'App on native JS',
     },
     {
         work: '/',
         link: 'http://anderson.ga/tic-tac-toe.github.io/',
         img: '/img/app2.jpg',
-        description: '',
+        description: 'This app is my first steps learning JS',
     },
 ];
 

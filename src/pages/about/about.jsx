@@ -98,7 +98,7 @@ const useStyle = makeStyles(theme => ({
   },
   int: {
     fill: 'yellow',
-    zIndex: '1500',
+    zIndex: '1000',
     cursor: 'pointer',
 
     transition: '.2s linear',
