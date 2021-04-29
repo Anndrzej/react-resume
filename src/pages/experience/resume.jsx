@@ -179,7 +179,7 @@ function Resume() {
   return (
     <Box>
       <Box className={classes.firstPage}>
-        <Typography className={classes.title}> Working Experience</Typography>
+        <Typography className={classes.title}>Experience</Typography>
         <Box component="div" className={css.middle}>
           <Box className={css.mouse}></Box>
         </Box>
